@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      import="java.util.LinkedList">
+    <h:head>
+        <title>TODO supply a title</title>
+
+    </h:head>
+    <h:body>
+        <h:form>
+            <div align="center">
+                <br/>   
+                <br/>
+
+                <h:outputText value="Cédula"></h:outputText>
+                <h:inputText value="#{beanUser.idUsuario}"></h:inputText>
+
+                <br/>   
+                <br/>
+
+                <h:outputText value="Nombre"></h:outputText>
+                <h:inputText value="#{beanUser.nombre}"></h:inputText>
+
+                <br/>   
+                <br/>
+
+                <h:outputText value="Primer Apellido"></h:outputText>
+                <h:inputText value="#{beanUser.apellido1}"></h:inputText>
+
+                <br/>   
+                <br/>
+
+                <h:outputText value="Segundo Apellido"></h:outputText>
+                <h:inputText value="#{beanUser.apellido2}"></h:inputText>
+
+                <br/>   
+                <br/>
+
+                <h:outputText value="Telefono"></h:outputText>
+                <h:inputText value="#{beanUser.telefono}"></h:inputText>
+
+                <br/>   
+                <br/>
+
+                <h:outputText value="Salario"></h:outputText>
+                <h:inputText value="#{beanUser.salario}"></h:inputText>
+
+                <br/>   
+                <br/>
+
+                <h:outputText value="Seleccione el Tipo Planilla"></h:outputText>
+                <h:selectOneMenu label="tipoPlanilla" value="#{beanUser.idTipoPlanilla}">
+                    <f:selectItems value="#{beanUser.listaTipoPlanilla}"></f:selectItems>
+                </h:selectOneMenu>
+
+                <br/>   
+                <br/>
+
+                <h:outputText value="Seleccione el Turno"></h:outputText>
+                <h:selectOneMenu label="turno" value="#{beanUser.idTurno}">
+                    <f:selectItems value="#{beanUser.listaTur}"></f:selectItems>
+                </h:selectOneMenu>
+
+                <br/>   
+                <br/>
+                <br/>   
+                <br/>  
+
+                <h:commandButton value="Guardar" actionListener="#{beanUser.insertUser()}"></h:commandButton>
+                <h:commandButton value="Eliminar" actionListener="#{beanUser.deleteUser()}"></h:commandButton>
+                <h:commandButton value="Editar" actionListener="#{beanUser.changesUser()}"></h:commandButton>
+                <h:commandButton value="Limpiar" actionListener="#{beanUser.limpiarCampos()}"></h:commandButton>
+
+
+            </div>
+
+            <div align="center" class="datagrid">
+                <h3>Detalle Turnos </h3>
+                <h:dataTable value="#{beanUser.listaUser}" var="user">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Cedula"></h:outputText>
+                        </f:facet>
+                        <h:outputText value="#{user.idUsuario}"></h:outputText>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Nombre"></h:outputText>
+                        </f:facet>
+                        <h:outputText value="#{user.nombre}"></h:outputText>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Primer Apellido"></h:outputText>
+                        </f:facet>
+                        <h:outputText value="#{user.apellido1}"></h:outputText>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Segundo Apellido"></h:outputText>
+                        </f:facet>
+                        <h:outputText value="#{user.apellido2}"></h:outputText>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Telefono"></h:outputText>
+                        </f:facet>
+                        <h:outputText value="#{user.telefono}"></h:outputText>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Salario"></h:outputText>
+                        </f:facet>
+                        <h:outputText value="#{user.salario}"></h:outputText>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Turno"></h:outputText>
+                        </f:facet>
+                        <h:outputText value="#{user.idTurno}"></h:outputText>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Tipo Planilla"></h:outputText>
+                        </f:facet>
+                        <h:outputText value="#{user.idTipoPlanilla}"></h:outputText>
+                    </h:column>
+                </h:dataTable>
+                <h:commandButton value="Consultar Usuarios" actionListener="#{beanUser.mostrarLista()}"></h:commandButton>
+
+            </div>
+
+
+        </h:form>
+    </h:body>
+</html>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title> Spreadsheet Type</title>
+        
+    </h:head>
+    <h:body>
+        <h:form>
+            <div align="center">
+           <br/>   
+           <br/>
+            
+           <h:outputText value="Id Tipo Planilla"></h:outputText>
+           <h:inputText value="#{beanSpreadsheetType.idTipoPlanilla}"></h:inputText>
+           
+           <br/>   
+           <br/>
+           
+           <h:outputText value="Descripción Tipo Planilla"></h:outputText>
+           <h:inputText value="#{beanSpreadsheetType.descripcion}"></h:inputText>
+           
+           <br/>   
+           <br/>
+           
+           <h:commandButton value="Guardar" actionListener="#{beanSpreadsheetType.insertSpreadsheet()}"></h:commandButton>
+           <h:commandButton value="Eliminar"  actionListener="#{beanSpreadsheetType.deleteSpreadsheet()}"></h:commandButton>  
+           <h:commandButton value="Editar"  actionListener="#{beanSpreadsheetType.changesSpreandsHeet()}"></h:commandButton>
+           <h:commandButton value="Limpiar"  actionListener="#{beanSpreadsheetType.limpiarCampos()}"></h:commandButton>  
+            </div>
+            
+            <br/>   
+           <br/>
+           <br/>   
+           <br/>
+           <br/>   
+           <br/>
+            
+            <div align="center" class="datagrid">
+                <h3>Detalle Turnos </h3>
+                <h:dataTable value="#{beanSpreadsheetType.listaSprends}" var="spreds">
+               <h:column>
+                   <f:facet name="header">
+                       <h:outputText value="Id Tipo Planilla"></h:outputText>
+                   </f:facet>
+                   <h:outputText value="#{spreds.idTipoPlanilla}"></h:outputText>
+               </h:column>
+           
+               <h:column>
+                   <f:facet name="header">
+                       <h:outputText value="Descripcion"></h:outputText>
+                   </f:facet>
+                   <h:outputText value="#{spreds.descripcion}"></h:outputText>
+               </h:column>
+          </h:dataTable>
+                <h:commandButton value="Consultar Turnos" actionListener="#{beanSpreadsheetType.mostrarLista()}"></h:commandButton>
+            
+     </div>
+            
+        </h:form>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </h:body>
+</html>

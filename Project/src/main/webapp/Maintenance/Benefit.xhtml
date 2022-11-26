@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>TODO supply a title</title>
+
+    </h:head>
+    <h:body>
+        <h:form>
+            <div align="center">
+                <br/>   
+                <br/>
+
+                <h:outputText value="Id Beneficio"></h:outputText>
+                <h:inputText value="#{beanBenefit.idBeneficios}"></h:inputText>
+
+                <br/>   
+                <br/>
+
+                <h:outputText value="Descripción "></h:outputText>
+                <h:inputText value="#{beanBenefit.descripcion}"></h:inputText>
+
+                <br/>   
+                <br/>
+
+                <h:outputText value="Precio"></h:outputText>
+                <h:inputText value="#{beanBenefit.porcentaje}"></h:inputText>
+
+                <br/>   
+                <br/>
+
+                <h:commandButton value="Guardar" actionListener="#{beanBenefit.insertBenefit()}"></h:commandButton>
+                <h:commandButton value="Eliminar" actionListener="#{beanBenefit.deleteWorkShift()}" ></h:commandButton>  
+                <h:commandButton value="Editar" actionListener="#{beanBenefit.changesWorkShift()}" ></h:commandButton>  
+                <h:commandButton value="Limpiar" actionListener="#{beanBenefit.limpiarCampos()}" ></h:commandButton>   
+
+                <br/>   
+                <br/>
+                <br/>   
+                <br/>
+                <br/>   
+                <br/>
+            </div>
+
+            <div align="center" class="datagrid">
+                <h3>Detalle Beneficios </h3>
+                <h:dataTable value="#{beanBenefit.listaBenefit}" var="ben">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Id Beneficio  "></h:outputText>
+                        </f:facet>
+                        <h:outputText value="#{ben.idBeneficios}"></h:outputText>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Descripcion"></h:outputText>
+                        </f:facet>
+                        <h:outputText value="#{ben.descripcion}"></h:outputText>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Precio "></h:outputText>
+                        </f:facet>
+                        <h:outputText value="#{ben.porcentaje}"></h:outputText>
+                    </h:column>    
+                </h:dataTable>
+                <h:commandButton value="Consultar Turnos" actionListener="#{beanBenefit.mostrarLista()}"></h:commandButton>
+
+            </div>
+
+
+
+        </h:form>
+    </h:body>
+</html>
