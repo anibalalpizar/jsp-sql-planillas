@@ -6,6 +6,10 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title> Spreadsheet Type</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
@@ -235,6 +239,20 @@
             .modal form label {
                 font-weight: normal;
             }
+
+            .titulo {
+
+                text-align: center;
+                font-family: Arial Black;
+                font-weight: bold;
+                font-size: 30px;
+                background: #1b292e;
+                -webkit-background-clip: text;
+                -moz-background-clip: text;
+                background-clip: text;
+                color: transparent;
+                text-shadow: 0px 3px 3px rgba(255,255,255,0.4),0px -1px 1px rgba(0,0,0,0.3);
+            }
         </style>
         <script>
             $(document).ready(function () {
@@ -269,45 +287,29 @@
             <br/>   
             <br/>
 
-            <h:outputText value="Id Tipo Planilla"></h:outputText>
-            <h:inputText value="#{beanSpreadsheetType.idTipoPlanilla}"></h:inputText>
+            <h2 class="titulo">Nuevo tipo de planilla</h2>
+            <br/>   
+            <br/>        
+            <center>
+
+                <div class="mb-3">
+                    <h:outputText value="Id Tipo Planilla"></h:outputText>
+
+                    <h:inputText value="#{beanSpreadsheetType.idTipoPlanilla}"></h:inputText>
+                </div>
+                <div class="mb-3"> 
+                    <h:outputText value="Descripción Tipo Planilla"></h:outputText>
+                    <h:inputText value="#{beanSpreadsheetType.descripcion}"></h:inputText>
+                </div>
+
+            </center>
 
             <br/>   
             <br/>
-
-            <h:outputText value="Descripción Tipo Planilla"></h:outputText>
-            <h:inputText value="#{beanSpreadsheetType.descripcion}"></h:inputText>
-
-            <br/>   
-            <br/>
-
-            <h:commandButton value="Guardar" actionListener="#{beanSpreadsheetType.insertSpreadsheet()}"></h:commandButton>
-            <h:commandButton value="Eliminar"  actionListener="#{beanSpreadsheetType.deleteSpreadsheet()}"></h:commandButton>  
-            <h:commandButton value="Editar"  actionListener="#{beanSpreadsheetType.changesSpreandsHeet()}"></h:commandButton>
-            <h:commandButton value="Limpiar"  actionListener="#{beanSpreadsheetType.limpiarCampos()}"></h:commandButton>  
-
-
-            <br/>   
+            <br/> 
             <br/>
             <br/>   
             <br/>
-            <br/>   
-            <br/>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             <div class="container-xl">
                 <div class="table-responsive">
@@ -315,37 +317,44 @@
                         <div class="table-title">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <h2>Manage <b>preadsheetType</b></h2>
+                                    <h2>Administrar <b>Tipo de planillas</b></h2>
                                 </div>
-                            </div>
+                                <div class="col-sm-6">
+                                    <h:commandButton class="btn btn-success" value="Guardar" actionListener="#{beanSpreadsheetType.insertSpreadsheet()}"></h:commandButton>
+                                    <h:commandButton class="btn btn-danger" value="Eliminar"  actionListener="#{beanSpreadsheetType.deleteSpreadsheet()}"></h:commandButton>  
+                                    <h:commandButton class="btn btn-warning" value="Editar"  actionListener="#{beanSpreadsheetType.changesSpreandsHeet()}"></h:commandButton>
+                                    <h:commandButton class="btn btn-info" value="Limpiar"  actionListener="#{beanSpreadsheetType.limpiarCampos()}"></h:commandButton>  
+                                </div>
+                            </div>   
                         </div>
+
+                        <div class = "text-center">
+                            <h:dataTable class="table table-striped table-hover" value="#{beanSpreadsheetType.listaSprends}" var="spreds">
+
+
+
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="ID Tipo Planilla"></h:outputText>
+                                    </f:facet>
+                                    <h:outputText value="#{spreds.idTipoPlanilla}"></h:outputText>
+                                </h:column>
+
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Descripción"></h:outputText>
+                                    </f:facet>
+                                    <h:outputText value="#{spreds.descripcion}"></h:outputText>
+                                </h:column>
+                            </h:dataTable>
+                        </div>
+
+
                     </div> 
                 </div>
+                <h:commandButton class="btn btn-primary" value="Consultar Turnos" actionListener="#{beanSpreadsheetType.mostrarLista()}"></h:commandButton>
             </div>
 
-
-            <h3>Detalle Turnos </h3>
-            <h:dataTable value="#{beanSpreadsheetType.listaSprends}" var="spreds">
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="Id Tipo Planilla"></h:outputText>
-                    </f:facet>
-                    <h:outputText value="#{spreds.idTipoPlanilla}"></h:outputText>
-                </h:column>
-
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="Descripcion"></h:outputText>
-                    </f:facet>
-                    <h:outputText value="#{spreds.descripcion}"></h:outputText>
-                </h:column>
-            </h:dataTable>
-            <h:commandButton value="Consultar Turnos" actionListener="#{beanSpreadsheetType.mostrarLista()}"></h:commandButton>
-
-
-
         </h:form>
-
-
     </h:body>
 </html>
