@@ -7,7 +7,7 @@
         <head>
             <meta charset="utf-8" />
             <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-            <title>Sistema Bodega| Inicio</title>
+            <title>Sistema Planillas| Inicio</title>
             <!-- Tell the browser to be responsive to screen width -->
             <meta
                 content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
@@ -169,16 +169,16 @@
                                 </a>
                                 <ul class="treeview-menu">
                                     <li>
-                                        <a href="../Maintenance/faces/Maintenance/SpreadsheetType.xhtml"><i class="fa fa-archive"></i>SpreadsheetType</a>
+                                        <a href="../Project/faces/Maintenance/SpreadsheetType.xhtml"><i class="fa fa-archive"></i>SpreadsheetType</a>
                                     </li>
                                     <li>
-                                        <a href="../Maintenance/faces/Maintenance/Benefit.xhtml"><i class="fa fa-tags"></i>Benefit</a>
+                                        <a href="../Project/faces/Maintenance/Benefit.xhtml"><i class="fa fa-tags"></i>Benefit</a>
                                     </li>
                                     <li>
-                                        <a href="../Maintenance/faces/Maintenance/CategoryPayment.xhtml"><i class="fa fa-cube"></i>Category Payment</a>
+                                        <a href="../Project/faces/Maintenance/CategoryPayment.xhtml"><i class="fa fa-cube"></i>Category Payment</a>
                                     </li>
                                     <li>
-                                        <a href="../Maintenance/faces/Maintenance/WorkShift.xhtml"><i class="fa fa-users"></i>WorkShift</a>
+                                        <a href="../Project/faces/Maintenance/WorkShift.xhtml"><i class="fa fa-users"></i>WorkShift</a>
                                     </li>
                                 </ul>
                             </li>

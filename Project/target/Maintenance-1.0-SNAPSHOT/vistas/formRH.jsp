@@ -7,7 +7,7 @@
         <head>
             <meta charset="utf-8" />
             <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-            <title>Sistema Bodega| Inicio</title>
+            <title>Sistema Planillas| Inicio</title>
             <!-- Tell the browser to be responsive to screen width -->
             <meta
                 content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
@@ -169,13 +169,13 @@
                                 </a>
                                 <ul class="treeview-menu">
                                     <li>
-                                        <a href="../Maintenance/faces/Maintenance/UserMaintenance.xhtml"><i class="fa fa-users"></i>User Maintenance</a>
+                                        <a href="../Project/faces/Maintenance/UserMaintenance.xhtml"><i class="fa fa-users"></i>User Maintenance</a>
                                     </li>
                                     <li>
-                                        <a href="../Maintenance/faces/Maintenance/UserMaintenance2.xhtml"><i class="fa fa-users"></i>User Maintenance 2</a>
+                                        <a href="../Project/faces/Maintenance/UserMaintenance2.xhtml"><i class="fa fa-users"></i>User Maintenance 2</a>
                                     </li>
                                     <li>
-                                        <a href="../Maintenance/faces/Maintenance/UserTable.xhtml"><i class="fa fa-users"></i>User Table</a>
+                                        <a href="../Project/faces/Maintenance/UserTable.xhtml"><i class="fa fa-users"></i>User Table</a>
                                     </li>
                                 </ul>
                             </li>

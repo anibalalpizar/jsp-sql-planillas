@@ -86,6 +86,7 @@ public class srvUsuario extends HttpServlet {
             session = request.getSession();
             session.setAttribute("vendedor", usuario);
             this.getServletConfig().getServletContext().getRequestDispatcher("/vistas/formPlanillero.jsp").forward(request, response);
+
         } else if (usuario != null && usuario.getCargo().getNombreCargo().equals("RH")) {
             session = request.getSession();
             session.setAttribute("vendedor", usuario);
