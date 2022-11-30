@@ -26,7 +26,7 @@ public void InsertBenefit(Benefit pBen) throws SNMPExceptions, SQLException {
 
             Benefit ben = new Benefit();
             ben = pBen;
-            strSQL = "INSERT INTO Beneficio(IDBeneficios, Descripcion, Porcentaje) VALUES"
+            strSQL = "INSERT INTO Beneficio(IDBeneficios, DescripcionBene, Porcentaje) VALUES"
                     + "(" + "'" + ben.getIdBeneficios() + "'" + ","
                     + "'" + ben.getDescripcion() + "'" + ","
                     + "'" + ben.getPorcentaje() + "'" + ")";
@@ -71,7 +71,7 @@ public void DeleteBenefit(Benefit pBen) throws SNMPExceptions, SQLException {
 
             Benefit ben= new Benefit();
             ben = pBen;
-             strSQL= String.format("UPDATE Beneficio set Descripcion = '%s', Porcentaje = %f where IDBeneficios = %d", pBen.descripcion, pBen.porcentaje, pBen.idBeneficios);
+             strSQL= String.format("UPDATE Beneficio set DescripcionBene = '%s', Porcentaje = %f where IDBeneficios = %d", pBen.descripcion, pBen.porcentaje, pBen.idBeneficios);
 
             accesoDatos.ejecutaSQL(strSQL);
 
@@ -98,14 +98,14 @@ public void DeleteBenefit(Benefit pBen) throws SNMPExceptions, SQLException {
             
             //Se crea la sentencia de Busqueda
             select=
-                    "SELECT IDBeneficios, Descripcion, Porcentaje FROM Beneficio";
+                    "SELECT IDBeneficios, DescripcionBene, Porcentaje FROM Beneficio";
             //se ejecuta la sentencia sql
             ResultSet rsPA= accesoDatos.ejecutaSQLRetornaRS(select);
             //se llama el array con los proyectos
             while(rsPA.next()){
                 
                 int idBeneficio= rsPA.getInt("IDBeneficios");
-                String descripcion = rsPA.getString("Descripcion");
+                String descripcion = rsPA.getString("DescripcionBene");
                 float precio= rsPA.getFloat("Porcentaje");
                 //se construye el objeto.
                 Benefit perBen= new Benefit(idBeneficio, descripcion, precio);

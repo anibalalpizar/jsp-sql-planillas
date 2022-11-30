@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      import="java.util.LinkedList">
+    <h:head>
+        <title>TODO supply a title</title>
+
+    </h:head>
+    <h:body>
+        <h:form>
+            <div align="center">
+                <br/>   
+                <br/>
+
+                <h:outputText value="Nº Factura"></h:outputText>
+                <h:inputText value="#{beanLibroPago.idFactura}"></h:inputText>
+
+                <br/>   
+                <br/>
+
+                <h:outputText value="Nº Planilla"></h:outputText>
+                <h:selectOneMenu value="#{beanLibroPago.idPlanilla}">
+                    <f:selectItems value="#{beanLibroPago.listaPlanilla}" ></f:selectItems> 
+                </h:selectOneMenu>
+
+                <br/>   
+                <br/>
+
+                <h:outputText value="Empleado"></h:outputText>
+                <h:selectOneMenu value="#{beanLibroPago.idUsuario}" >
+                    <f:selectItems value="#{beanLibroPago.listaNombres}" ></f:selectItems> 
+                </h:selectOneMenu>
+
+
+                <br/>   
+                <br/>
+
+                <h:outputText value="Deduccion"></h:outputText>
+                <h:selectOneMenu value="#{beanLibroPago.idBeneficio}" >
+                    <f:selectItems value="#{beanLibroPago.listaBenefit}"></f:selectItems> 
+                </h:selectOneMenu>
+
+                <br/>   
+                <br/>
+
+                <h:outputText value="Categoria Pago"></h:outputText>
+                <h:selectOneMenu value="#{beanLibroPago.idCategoriaPago}"  >
+                    <f:selectItems value="#{beanLibroPago.listaCategoryPayment}"></f:selectItems> 
+                </h:selectOneMenu>
+                <br/>   
+                <br/>
+
+                <br/>   
+                <br/>  
+                <h:commandButton value="Guardar" actionListener="#{beanLibroPago.insertLibro()}"></h:commandButton>
+                <h:commandButton value="Realizar Calculos" actionListener="#{beanLibroPago.calculos()}"></h:commandButton>
+
+
+            </div> 
+            <div align="center" class="datagrid">
+                <h3>Detalle Factura </h3>
+                <h:dataTable value="#{beanLibroPago.listaPago}" var="pago">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Nº Factura"></h:outputText>
+                        </f:facet>
+                        <h:outputText value="#{pago.idFactura}"></h:outputText>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Nº Planilla"></h:outputText>
+                        </f:facet>
+                        <h:outputText value="#{pago.idPlanilla}"></h:outputText>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Empleado"></h:outputText>
+                        </f:facet>
+                        <h:outputText value="#{pago.usu}"></h:outputText>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Deduciones"></h:outputText>
+                        </f:facet>
+                        <h:outputText value="#{pago.pay}"></h:outputText>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Categoria Pago"></h:outputText>
+                        </f:facet>
+                        <h:outputText value="#{pago.ben}"></h:outputText>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Salario Bruto"></h:outputText>
+                        </f:facet>
+                        <h:outputText value="#{pago.salarioBruto}"></h:outputText>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Salario Neto"></h:outputText>
+                        </f:facet>
+                        <h:outputText value="#{pago.salarioNeto}"></h:outputText>
+                    </h:column>
+
+
+                </h:dataTable>
+                <h:commandButton value="Consultar Usuarios" actionListener="#{beanLibroPago.mostrarLista()}"></h:commandButton>
+
+            </div>
+
+
+
+
+
+
+
+
+        </h:form>
+    </h:body>
+</html>

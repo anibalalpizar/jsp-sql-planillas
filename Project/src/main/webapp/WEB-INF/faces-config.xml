@@ -48,4 +48,14 @@
         <managed-bean-class>Controller.beanBenefit</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
+    <managed-bean>
+        <managed-bean-name>beanPlanilla</managed-bean-name>
+        <managed-bean-class>Controller.beanPlanilla</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>beanLibroPago</managed-bean-name>
+        <managed-bean-class>Controller.beanLibroPago</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
 </faces-config>
