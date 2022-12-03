@@ -11,30 +11,53 @@
     </h:head>
     <h:body>
         <h:form>
-            
-                <h:outputText value="id user"></h:outputText>
-                <h:inputText></h:inputText>
-                
-                
-                
+
+            <div align="center">
+                <br/>   
+                <br/>
+
+                <h:outputText value="Id user"></h:outputText>
+                <h:inputText value="#{beanRegister.idUser}"></h:inputText>
+
+                <br/>   
+                <br/>
+
                 <h:outputText value="username"></h:outputText>
-                <h:inputText></h:inputText>
-                
-                
-                
+                <h:inputText value="#{beanRegister.userName}"></h:inputText>
+
+                <br/>   
+                <br/>
+
                 <h:outputText value="password"></h:outputText>
-                <h:inputText></h:inputText>
-                
-                
-                
+                <h:inputText value="#{beanRegister.password}"></h:inputText>
+
+                <br/>   
+                <br/>
+
+
                 <h:outputText value="status"></h:outputText>
-                <h:inputText></h:inputText>
-                
-                
-                
-                <h:outputText value="id position"></h:outputText>
-                <h:inputText></h:inputText>
-                
+                <h:inputText value="#{beanRegister.status}"></h:inputText>
+
+                <br/>   
+                <br/>
+
+                <h:outputText value="idposition"></h:outputText>
+                <h:inputText value="#{beanRegister.idPosition}"></h:inputText>
+
+                <br/>   
+                <br/>
+
+                <h:commandButton value="Guardar" actionListener="#{beanRegister.insertBenefit()}"></h:commandButton>
+
+
+                <br/>   
+                <br/>
+                <br/>   
+                <br/>
+                <br/>   
+                <br/>
+            </div>
+
 
 
         </h:form>

@@ -58,4 +58,9 @@
         <managed-bean-class>Controller.beanLibroPago</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
+    <managed-bean>
+        <managed-bean-name>beanRegister</managed-bean-name>
+        <managed-bean-class>Controller.beanRegister</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
 </faces-config>
