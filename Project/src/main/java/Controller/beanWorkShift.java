@@ -10,9 +10,18 @@ public class beanWorkShift {
 
     private int idTurno;
     private String descripcion;
+    private String mensaje;
     private LinkedList<WorkShift> listaWorkShift = new LinkedList<WorkShift>();
 
     public beanWorkShift() {
+    }
+
+    public String getMensaje() {
+        return mensaje;
+    }
+
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
     }
 
     public LinkedList<WorkShift> getListaWorkShift() {
@@ -44,7 +53,12 @@ public class beanWorkShift {
         WorkShift wor = new WorkShift(idTurno, descripcion);
         WorkShiftDB worDB = new WorkShiftDB();
 
-        worDB.InsertWorkShift(wor);
+        if (worDB.consultWorkShift(idTurno) == true) {
+            setMensaje("Este Turno ya fue creado");
+        } else {
+            worDB.InsertWorkShift(wor);
+            setMensaje("Turno Creado Correctamente");
+        }
 
     }
 

@@ -61,7 +61,7 @@ public class PlanillaDB {
             while (rsPA.next()) {
 
                 int idPlanilla = rsPA.getInt("IDPlanilla");
-                String descripcion= rsPA.getString("Descripcion");
+                String descripcion = rsPA.getString("Descripcion");
                 int idTurno = rsPA.getInt("IDTurno");
                 int idTipoPlanilla = rsPA.getInt("IDTipoPlanilla");
                 String fechaInicio = rsPA.getString("FechaInico");
@@ -88,4 +88,36 @@ public class PlanillaDB {
         return listaPlani;
     }
 
+    public boolean consultPlanilla(int numPlanilla) throws SNMPExceptions, SQLException {
+
+        boolean existe = false;
+        String select = "";
+        try {
+            //Se intancia la clase de acceso a datos
+            AccesoDatos accesoDatos = new AccesoDatos();
+
+            //Se crea la sentencia de Busqueda
+            select = "select * from Planilla where IDPlanilla=" + numPlanilla;
+
+            //se ejecuta la sentencia sql
+            ResultSet rsPA = accesoDatos.ejecutaSQLRetornaRS(select);
+            //se llama el array con los proyectos
+            if (rsPA.next()) {
+
+                existe = true;
+            }
+
+            rsPA.close();
+
+            return existe;
+
+        } catch (SQLException e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION,
+                    e.getMessage(), e.getErrorCode());
+        } catch (Exception e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION, e.getMessage());
+        } finally {
+
+        }
+    }
 }

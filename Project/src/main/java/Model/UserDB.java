@@ -28,10 +28,8 @@ public class UserDB {
             User user = new User();
             user = pUser;
 
-            strSQL = "INSERT INTO Usuario(IDUsuario, IDTurno, IDTipoPlanilla, Salario, Nombre, Apellido1, Apellido2, Telefono) VALUES"
+            strSQL = "INSERT INTO Usuario(IDUsuario, Salario, Nombre, Apellido1, Apellido2, Telefono) VALUES"
                     + "(" + "'" + user.getIdUsuario() + "'" + ","
-                    + "'" + user.getIdTurno() + "'" + ","
-                    + "'" + user.getIdTipoPlanilla() + "'" + ","
                     + "'" + user.getSalario() + "'" + ","
                     + "'" + user.getNombre() + "'" + ","
                     + "'" + user.getApellido1() + "'" + ","
@@ -80,22 +78,20 @@ public class UserDB {
 
             //Se crea la sentencia de Busqueda
             select
-                    = "SELECT IDUsuario, IDTurno, IDTipoPlanilla, Salario, Nombre, Apellido1, Apellido2, Telefono FROM Usuario";
+                    = "SELECT IDUsuario, Salario, Nombre, Apellido1, Apellido2, Telefono FROM Usuario";
             //se ejecuta la sentencia sql
             ResultSet rsPA = accesoDatos.ejecutaSQLRetornaRS(select);
             //se llama el array con los proyectos
             while (rsPA.next()) {
 
                 int idUsuario = rsPA.getInt("IDUsuario");
-                int idTurno = rsPA.getInt("IDTurno");
-                int idTipoPlanilla = rsPA.getInt("IDTipoPlanilla");
                 float salario = rsPA.getFloat("Salario");
                 String nombre = rsPA.getString("Nombre");
                 String apellido1 = rsPA.getString("Apellido1");
                 String apellido2 = rsPA.getString("Apellido2");
                 int telefono = rsPA.getInt("Telefono");
                 //se construye el objeto.
-                User perUser = new User(idUsuario, idTurno, idTipoPlanilla, salario, nombre, apellido1, apellido2, telefono);
+                User perUser = new User(idUsuario, salario, nombre, apellido1, apellido2, telefono);
 
                 listaUser.add(perUser);
             }
@@ -120,8 +116,8 @@ public class UserDB {
 
             User user = new User();
             user = pUser;
-            strSQL = String.format("UPDATE Usuario set IDTurno = %d, IDTipoPlanilla = %d, Salario = %f, Nombre = '%s', Apellido1 = '%s', Apellido2 = '%s', Telefono = %d where IDUsuario = %d",
-                    pUser.idTurno, pUser.idTipoPlanilla, pUser.salario, pUser.nombre, pUser.apellido1, pUser.apellido2, pUser.telefono, pUser.idUsuario);
+            strSQL = String.format("UPDATE Usuario set Salario = %f, Nombre = '%s', Apellido1 = '%s', Apellido2 = '%s', Telefono = %d where IDUsuario = %d",
+                     pUser.salario, pUser.nombre, pUser.apellido1, pUser.apellido2, pUser.telefono, pUser.idUsuario);
 
             accesoDatos.ejecutaSQL(strSQL);
 
@@ -132,5 +128,39 @@ public class UserDB {
         } finally {
         }
 
+    }
+
+ public boolean consultarUser(int numUser) throws SNMPExceptions, SQLException{
+           
+        boolean existe = false;
+        String select="";
+         try{
+            //Se intancia la clase de acceso a datos
+            AccesoDatos accesoDatos= new AccesoDatos();
+            
+            //Se crea la sentencia de Busqueda
+            select="select * from Usuario where IDUsuario="+numUser;
+                    
+            //se ejecuta la sentencia sql
+            ResultSet rsPA= accesoDatos.ejecutaSQLRetornaRS(select);
+            //se llama el array con los proyectos
+            if(rsPA.next()){
+                
+                existe=true;
+            }
+            
+            rsPA.close();
+      
+            return existe;
+            
+        }catch(SQLException e){
+            throw new SNMPExceptions (SNMPExceptions.SQL_EXCEPTION,
+                                     e.getMessage(),e.getErrorCode());
+        }catch(Exception e){
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION,e.getMessage());
+        }finally{
+            
+        }
+        
     }
 }

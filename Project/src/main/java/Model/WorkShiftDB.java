@@ -56,7 +56,7 @@ public class WorkShiftDB {
 //                    + "'" + spre.getDescripcion() + "'" + ")";
 
             accesoDatos.ejecutaSQL(strSQL);
-         
+
         } catch (SQLException e) {
             throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION, e.getMessage(), e.getErrorCode());
         } catch (Exception e) {
@@ -100,45 +100,43 @@ public class WorkShiftDB {
     }
 
 //metodo que se trae toda la lista de Cadidatos
-    public LinkedList<WorkShift> moTodo() throws SNMPExceptions, SQLException{
-        String select= "";
-        LinkedList<WorkShift> listaWork= new LinkedList<WorkShift>();
-        
-        try{
+    public LinkedList<WorkShift> moTodo() throws SNMPExceptions, SQLException {
+        String select = "";
+        LinkedList<WorkShift> listaWork = new LinkedList<WorkShift>();
+
+        try {
             //Se intancia la clase de acceso a datos
-            AccesoDatos accesoDatos= new AccesoDatos();
-            
+            AccesoDatos accesoDatos = new AccesoDatos();
+
             //Se crea la sentencia de Busqueda
-            select=
-                    "SELECT IDTurno, Descripcion FROM Turno";
+            select
+                    = "SELECT IDTurno, Descripcion FROM Turno";
             //se ejecuta la sentencia sql
-            ResultSet rsPA= accesoDatos.ejecutaSQLRetornaRS(select);
+            ResultSet rsPA = accesoDatos.ejecutaSQLRetornaRS(select);
             //se llama el array con los proyectos
-            while(rsPA.next()){
-                
-                int idTurno= rsPA.getInt("IDTurno");
-                
+            while (rsPA.next()) {
+
+                int idTurno = rsPA.getInt("IDTurno");
+
                 String descripcion = rsPA.getString("Descripcion");
-                
+
                 //se construye el objeto.
-                WorkShift perWork= new WorkShift(idTurno, descripcion);
-                
+                WorkShift perWork = new WorkShift(idTurno, descripcion);
+
                 listaWork.add(perWork);
             }
             rsPA.close();//se cierra el ResultSeat.
-            
-        }catch(SQLException e){
-            throw new SNMPExceptions (SNMPExceptions.SQL_EXCEPTION,
-                                     e.getMessage(),e.getErrorCode());
-        }catch(Exception e){
-            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION,e.getMessage());
-        }finally{
-            
+
+        } catch (SQLException e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION,
+                    e.getMessage(), e.getErrorCode());
+        } catch (Exception e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION, e.getMessage());
+        } finally {
+
         }
         return listaWork;
     }
-    
-
 
     public void ChangesWorkShift(WorkShift pWork) throws SNMPExceptions, SQLException {
 
@@ -149,7 +147,7 @@ public class WorkShiftDB {
 
             WorkShift wor = new WorkShift();
             wor = pWork;
-             strSQL= String.format("UPDATE Turno set Descripcion = '%s' where IDTurno = %d", pWork.descripcion, pWork.idTurno);
+            strSQL = String.format("UPDATE Turno set Descripcion = '%s' where IDTurno = %d", pWork.descripcion, pWork.idTurno);
 //            strSQL = "UPDATE Turno set Descripcion="+ wor.getDescripcion()
 //                     +" WHERE IDTurno=" + wor.getIdTurno();
 //                    + "(" + "'" + wor.getIdTurno() + "'" + ","
@@ -166,5 +164,38 @@ public class WorkShiftDB {
 
     }
 
+    public boolean consultWorkShift(int numWork) throws SNMPExceptions, SQLException {
+
+        boolean existe = false;
+        String select = "";
+        try {
+            //Se intancia la clase de acceso a datos
+            AccesoDatos accesoDatos = new AccesoDatos();
+
+            //Se crea la sentencia de Busqueda
+            select = "select * from Turno where IDTurno=" + numWork;
+
+            //se ejecuta la sentencia sql
+            ResultSet rsPA = accesoDatos.ejecutaSQLRetornaRS(select);
+            //se llama el array con los proyectos
+            if (rsPA.next()) {
+
+                existe = true;
+            }
+
+            rsPA.close();
+
+            return existe;
+
+        } catch (SQLException e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION,
+                    e.getMessage(), e.getErrorCode());
+        } catch (Exception e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION, e.getMessage());
+        } finally {
+
+        }
+
+    }
 
 }

@@ -3,20 +3,14 @@ package Model;
 public class User {
 
     public int idUsuario;
-    public int idTurno;
-    public int idTipoPlanilla;
     public float salario;
     public String nombre;
     public String apellido1;
     public String apellido2;
     public int telefono;
-    
 
-    public User(int idUsuario, int idTurno, int idTipoPlanilla,
-            float salario, String nombre, String apellido1, String apellido2, int telefono) {
+    public User(int idUsuario, float salario, String nombre, String apellido1, String apellido2, int telefono) {
         this.setIdUsuario(idUsuario);
-        this.setIdTurno(idTurno);
-        this.setIdTipoPlanilla(idTipoPlanilla);
         this.setSalario(salario);
         this.setNombre(nombre);
         this.setApellido1(apellido1);
@@ -27,9 +21,6 @@ public class User {
     public User() {
     }
 
-    
-
-
     public int getIdUsuario() {
         return idUsuario;
     }
@@ -37,24 +28,6 @@ public class User {
     public void setIdUsuario(int idUsuario) {
         this.idUsuario = idUsuario;
     }
-
-
-    public int getIdTurno() {
-        return idTurno;
-    }
-
-    public void setIdTurno(int idTurno) {
-        this.idTurno = idTurno;
-    }
-
-    public int getIdTipoPlanilla() {
-        return idTipoPlanilla;
-    }
-
-    public void setIdTipoPlanilla(int idTipoPlanilla) {
-        this.idTipoPlanilla = idTipoPlanilla;
-    }
-
 
     public float getSalario() {
         return salario;

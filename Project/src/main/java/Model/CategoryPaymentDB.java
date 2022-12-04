@@ -41,7 +41,7 @@ public class CategoryPaymentDB {
 
     }
 
-public void DeleteCategoryPayment(CategoryPayment pCat) throws SNMPExceptions, SQLException {
+    public void DeleteCategoryPayment(CategoryPayment pCat) throws SNMPExceptions, SQLException {
 
         String strSQL = "";
 
@@ -52,7 +52,7 @@ public void DeleteCategoryPayment(CategoryPayment pCat) throws SNMPExceptions, S
             strSQL = "DELETE FROM CatgoriaPago WHERE IDCategoriaPago = " + cat.getIdCategoriaPago();
 
             accesoDatos.ejecutaSQL(strSQL);
-         
+
         } catch (SQLException e) {
             throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION, e.getMessage(), e.getErrorCode());
         } catch (Exception e) {
@@ -62,15 +62,15 @@ public void DeleteCategoryPayment(CategoryPayment pCat) throws SNMPExceptions, S
 
     }
 
- public void ChangesCategoryPayment(CategoryPayment pCat) throws SNMPExceptions, SQLException {
+    public void ChangesCategoryPayment(CategoryPayment pCat) throws SNMPExceptions, SQLException {
 
         String strSQL = "";
 
         try {
 
-            CategoryPayment cat= new CategoryPayment();
+            CategoryPayment cat = new CategoryPayment();
             cat = pCat;
-             strSQL= String.format("UPDATE CategoriaPago set Descripcion = '%s', Precio = %f where IDCategoriaPago = %d", pCat.descripcion, pCat.precio, pCat.idCategoriaPago);
+            strSQL = String.format("UPDATE CategoriaPago set Descripcion = '%s', Precio = %f where IDCategoriaPago = %d", pCat.descripcion, pCat.precio, pCat.idCategoriaPago);
 
             accesoDatos.ejecutaSQL(strSQL);
 
@@ -82,44 +82,73 @@ public void DeleteCategoryPayment(CategoryPayment pCat) throws SNMPExceptions, S
         }
 
     }
+    public LinkedList<CategoryPayment> moTodo() throws SNMPExceptions, SQLException {
+        String select = "";
+        LinkedList<CategoryPayment> listaCategory = new LinkedList<CategoryPayment>();
 
-
-//metodo que se trae toda la lista de Cadidatos
-    public LinkedList<CategoryPayment> moTodo() throws SNMPExceptions, SQLException{
-        String select= "";
-        LinkedList<CategoryPayment> listaCategory= new LinkedList<CategoryPayment>();
-        
-        try{
-            //Se intancia la clase de acceso a datos
-            AccesoDatos accesoDatos= new AccesoDatos();
+        try {
             
+            AccesoDatos accesoDatos = new AccesoDatos();
+
             //Se crea la sentencia de Busqueda
-            select=
-                    "SELECT IDCategoriaPago, Descripcion, Precio FROM CategoriaPago";
+            select
+                    = "SELECT IDCategoriaPago, Descripcion, Precio FROM CategoriaPago";
             //se ejecuta la sentencia sql
-            ResultSet rsPA= accesoDatos.ejecutaSQLRetornaRS(select);
+            ResultSet rsPA = accesoDatos.ejecutaSQLRetornaRS(select);
             //se llama el array con los proyectos
-            while(rsPA.next()){
-                
-                int idCategoriaPago= rsPA.getInt("IDCategoriPago");
+            while (rsPA.next()) {
+
+                int idCategoriaPago = rsPA.getInt("IDCategoriaPago");
                 String descripcion = rsPA.getString("Descripcion");
-                float precio= rsPA.getFloat("Precio");
+                float precio = rsPA.getFloat("Precio");
                 //se construye el objeto.
-                CategoryPayment perCat= new CategoryPayment(idCategoriaPago, descripcion, precio);
+                CategoryPayment perCat = new CategoryPayment(idCategoriaPago, descripcion, precio);
                 listaCategory.add(perCat);
             }
             rsPA.close();//se cierra el ResultSeat.
-            
-        }catch(SQLException e){
-            throw new SNMPExceptions (SNMPExceptions.SQL_EXCEPTION,
-                                     e.getMessage(),e.getErrorCode());
-        }catch(Exception e){
-            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION,e.getMessage());
-        }finally{
-            
+
+        } catch (SQLException e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION,
+                    e.getMessage(), e.getErrorCode());
+        } catch (Exception e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION, e.getMessage());
+        } finally {
+
         }
         return listaCategory;
     }
-    
 
+    public boolean consultCategoryPayment(int numCategory) throws SNMPExceptions, SQLException {
+
+        boolean existe = false;
+        String select = "";
+        try {
+            //Se intancia la clase de acceso a datos
+            AccesoDatos accesoDatos = new AccesoDatos();
+
+            //Se crea la sentencia de Busqueda
+            select = "select * from CategoriaPago where IDCategoriaPago=" + numCategory;
+
+            //se ejecuta la sentencia sql
+            ResultSet rsPA = accesoDatos.ejecutaSQLRetornaRS(select);
+            //se llama el array con los proyectos
+            if (rsPA.next()) {
+
+                existe = true;
+            }
+
+            rsPA.close();
+
+            return existe;
+
+        } catch (SQLException e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION,
+                    e.getMessage(), e.getErrorCode());
+        } catch (Exception e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION, e.getMessage());
+        } finally {
+
+        }
+
+    }
 }

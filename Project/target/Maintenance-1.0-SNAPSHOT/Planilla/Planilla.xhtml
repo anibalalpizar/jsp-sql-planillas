@@ -111,10 +111,7 @@
                                  <f:selectItems value=""></f:selectItems> 
                              </h:selectOneMenu>
                 -->
-                <br/>   
-                <br/>
-                <br/>   
-                <br/>
+
 
 
 
@@ -123,7 +120,10 @@
                 <h:commandButton value="Editar" ></h:commandButton>
                 <h:commandButton value="Limpiar" ></h:commandButton>
 
-
+                <br/>   
+                <br/>
+                <br/>   
+                <h:outputText value="#{beanPlanilla.mensaje}"></h:outputText>
             </div>
 
             <div align="center" class="datagrid">
@@ -135,7 +135,7 @@
                         </f:facet>
                         <h:outputText value="#{plani.idPlanilla}"></h:outputText>
                     </h:column>
-                    
+
                     <h:column>
                         <f:facet name="header">
                             <h:outputText value="Descripcion "></h:outputText>
