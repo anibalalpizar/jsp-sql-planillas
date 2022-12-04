@@ -64,13 +64,21 @@ public class beanRegister {
         this.idPosition = idPosition;
     }
 
-     public void insertBenefit() throws SNMPExceptions, SQLException {
+    public void insertBenefit() throws SNMPExceptions, SQLException {
 
         Register ben = new Register(idUser, userName, password, status, idPosition);
         RegisterDB benDB = new RegisterDB();
 
         benDB.insertarUsuario(ben);
 
+    }
+
+    public void limpiarCampos() {
+        this.idPosition = 0;
+        this.idUser = 0;
+        this.password = "";
+        this.status = 0;
+        this.userName = "";
     }
 
 }

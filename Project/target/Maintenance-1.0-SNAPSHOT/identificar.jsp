@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src="https://cdn.tailwindcss.com"></script>
 
-        <title>Document</title>
+        <title>Iniciar Sesion</title>
     </head>
 
     <body>
@@ -52,7 +52,7 @@
                         <p class="text-center text-sm">O</p>
                         <hr class="border-gray-400" />
                     </div>
-                    <form action="registro.xhtml">
+                    <form action="faces/registro.xhtml">
                         <div class="mt-3 text-xs flex justify-between items-center">
                             <p>¿No tienes una cuenta?</p>
                             <button

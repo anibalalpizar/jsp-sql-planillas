@@ -6,55 +6,76 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       import="java.util.LinkedList">
     <h:head>
-        <title>TODO supply a title</title>
+        <title>Registrar cuenta</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+
 
     </h:head>
     <h:body>
         <h:form>
 
-            <div align="center">
-                <br/>   
-                <br/>
+            <section
+                class="bg-gray-50 min-h-screen flex items-center justify-center items-center"
+                >
+
+                <!-- Register container -->
+                <div
+                    class="bg-gray-100 flex rounded-2xl shadow-lg max-w-3xl p-5 items-center"
+                    >
+
+                    <!-- Register form -->
+                    <div class="md:w-1/2 px-16">
+                        <h2 class="font-bold text-2xl text-[#002D74]">Registrate</h2>
+                        <p class="text-sm mt-4 text-[#002D74]">
+                            El mejor sistema de planillas del mercado
+                        </p>
+
+                        <div class="flex flex-col gap-4">
 
 
-                <h:outputText value="username"></h:outputText>
-                <h:inputText value="#{beanRegister.userName}"></h:inputText>
+                            <h6 class="mt-8 ">Nombre de usuario</h6>
+                            <!--<h:outputText class="p-2 mt-8 rounded-xl border" value="username"></h:outputText>-->
+                            <h:inputText class="p-2 rounded-xl border" value="#{beanRegister.userName}"></h:inputText>
 
-                <br/>   
-                <br/>
-
-                <h:outputText value="password"></h:outputText>
-                <h:inputText value="#{beanRegister.password}"></h:inputText>
-
-                <br/>   
-                <br/>
-
-
-                <h:outputText value="status"></h:outputText>
-                <h:inputText value="#{beanRegister.status}"></h:inputText>
-
-                <br/>   
-                <br/>
-
-                <h:outputText value="idposition"></h:outputText>
-                <h:inputText value="#{beanRegister.idPosition}"></h:inputText>
-
-                <br/>   
-                <br/>
-
-                <h:commandButton value="Guardar" actionListener="#{beanRegister.insertBenefit()}"></h:commandButton>
-
-
-                <br/>   
-                <br/>
-                <br/>   
-                <br/>
-                <br/>   
-                <br/>
-            </div>
+  
+                            <h6>Contraseña</h6>
+                            <!--<h:outputText class="p-2 rounded-xl border w-full" value="password"></h:outputText>-->
+                            <h:inputText class="p-2 rounded-xl border w-full" value="#{beanRegister.password}"></h:inputText>
 
 
 
+                            <h6>Estado (1, 0)</h6>
+                            <!--<h:outputText class="p-2 rounded-xl border w-full" value="status"></h:outputText>-->
+                            <h:inputText class="p-2 rounded-xl border w-full" value="#{beanRegister.status}"></h:inputText>
+
+
+                            <h6>ID Rol (1 to 3)</h6>
+                            <!--<h:outputText class="p-2 rounded-xl border w-full" value="idposition"></h:outputText>-->
+                            <h:inputText class="p-2 rounded-xl border w-full" value="#{beanRegister.idPosition}"></h:inputText>
+
+
+                            <h:commandButton value="Guardar" actionListener="#{beanRegister.insertBenefit()}"></h:commandButton>
+                            <h:commandButton value="Limpiar" actionListener="#{beanRegister.limpiarCampos()}" ></h:commandButton>   
+
+                        </div>
+
+                        <div class="mt-10 grid grid-cols-3 items-center text-gray-500">
+                            <hr class="border-gray-400" />
+                            <p class="text-center text-sm">O</p>
+                            <hr class="border-gray-400" />
+                        </div>
+                    </div>
+
+                    <!-- Image form -->
+                    <div class="sm:block hidden w-1/2">
+                        <img
+                            class="rounded-2xl"
+                            src="https://cdn.esbrillante.mx/wp-content/uploads/2017/06/Previo_Tarjetas.jpg"
+                            alt="login image"
+                            />
+                    </div>
+                </div>
+            </section>
         </h:form>
     </h:body>
 </html>
