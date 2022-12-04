@@ -52,15 +52,16 @@
                         <p class="text-center text-sm">O</p>
                         <hr class="border-gray-400" />
                     </div>
-
-                    <div class="mt-3 text-xs flex justify-between items-center">
-                        <p>¿No tienes una cuenta?</p>
-                        <button
-                            class="py-2 px-5 bg-white border rounded-xl hover:scale-110 duration-300"
-                            >
-                            Registrarte
-                        </button>
-                    </div>
+                    <form action="registro.xhtml">
+                        <div class="mt-3 text-xs flex justify-between items-center">
+                            <p>¿No tienes una cuenta?</p>
+                            <button
+                                class="py-2 px-5 bg-white border rounded-xl hover:scale-110 duration-300"
+                                >
+                                Registrarte
+                            </button>
+                        </div>
+                    </form>
                 </div>
 
                 <!-- Image form -->

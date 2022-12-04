@@ -13,8 +13,11 @@ public class DAOUSUARIO extends conexion {
         Statement st = null;
         ResultSet rs = null;
 
+       // String sql = "SELECT U.IdUser, C.PositionName FROM UsuarioSeguridad U INNER JOIN Cargo C ON U.IdPosition = C.IdPosition where u.Status = 1 AND U.USERNAME = '"
+              //  + user.getNombreususario() + "' AND U.PASSWORD = '" + user.getClave() + "'";
+
         String sql = "SELECT U.IdUser, C.PositionName FROM UsuarioSeguridad U INNER JOIN Cargo C ON U.IdPosition = C.IdPosition where u.Status = 1 AND U.USERNAME = '"
-                + user.getNombreususario() + "' AND U.PASSWORD = '" + user.getClave() + "'";
+                + user.getNombreususario() + "' AND  DECRYPTBYPASSPHRASE('password', U.PASSWORD) = '" + user.getClave() + "'";
 
         con = new conexion();
 

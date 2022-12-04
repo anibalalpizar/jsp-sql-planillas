@@ -82,7 +82,7 @@ public class srvUsuario extends HttpServlet {
             request.setAttribute("msje", "Bienvenido ");
             this.getServletConfig().getServletContext().getRequestDispatcher("/vistas/index.jsp").forward(request, response);
 
-        } else if (usuario != null && usuario.getCargo().getNombreCargo().equals("PLANILLERO")) {
+        } else if (usuario != null && usuario.getCargo().getNombreCargo().equals("VENDEDOR")) {
             session = request.getSession();
             session.setAttribute("vendedor", usuario);
             this.getServletConfig().getServletContext().getRequestDispatcher("/vistas/formPlanillero.jsp").forward(request, response);
