@@ -35,12 +35,10 @@ public class RegisterDB {
 
             Register ben = new Register();
             ben = pRegister;
-            strSQL = "INSERT INTO UsuarioSeguridad(IdUser, UserName, Password, Status, IdPosition) VALUES"
-                    + "(" + "'" + ben.getIdUser() + "'" + ","
-                    + "'" + ben.getUserName()+ "'" + ","
-                    + "'" + ben.getPassword()+ "'" + ","
-                    + "'" + ben.getStatus()+ "'" + ","
-                    + "'" + ben.getIdPosition()+ "'" + ")";
+            strSQL = "insert into UsuarioSeguridad(UserName, Password, Status, IdPosition) "
+                    + "values('" + ben.getUserName()
+                    + "', ENCRYPTBYPASSPHRASE('password', '" + ben.getPassword()+ "')"
+                    + ", '" + ben.getStatus() + "', '" + ben.getIdPosition() + "')";
 
             accesoDatos.ejecutaSQL(strSQL);
 
