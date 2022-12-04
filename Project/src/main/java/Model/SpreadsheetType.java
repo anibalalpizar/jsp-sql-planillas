@@ -4,6 +4,7 @@ public class SpreadsheetType {
 
     public int idTipoPlanilla;
     public String descripcion;
+    public int borrado = 0;
 
     public SpreadsheetType(int idTipoPlanilla, String descripcion) {
         this.setIdTipoPlanilla(idTipoPlanilla);

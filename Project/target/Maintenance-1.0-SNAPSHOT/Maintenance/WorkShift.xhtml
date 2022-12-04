@@ -27,7 +27,7 @@
            <br/>
            
            <h:commandButton value="Guardar" actionListener="#{beanWorkShift.insertWorkShift()}"></h:commandButton>
-           <h:commandButton value="Eliminar" actionListener="#{beanWorkShift.deleteWorkShift()}" ></h:commandButton>  
+           <h:commandButton value="Eliminar" actionListener="#{beanWorkShift.borradoLogico(beanWorkShift.idTurno)}" ></h:commandButton>  
            <h:commandButton value="Editar" actionListener="#{beanWorkShift.changesWorkShift()}" ></h:commandButton>  
            <h:commandButton value="Limpiar" actionListener="#{beanWorkShift.limpiarCampos()}" ></h:commandButton>   
             

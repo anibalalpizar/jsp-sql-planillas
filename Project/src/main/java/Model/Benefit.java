@@ -5,6 +5,7 @@ public class Benefit {
     public int idBeneficios;
     public String descripcion;
     public float porcentaje;
+    public int borrado =0;
 
     public Benefit(int idBeneficios, String descripcion, float porcentaje) {
         this.setIdBeneficios(idBeneficios);

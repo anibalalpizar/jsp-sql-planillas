@@ -325,7 +325,7 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <h:commandButton class="btn btn-success" value="Guardar" actionListener="#{beanSpreadsheetType.insertSpreadsheet()}"></h:commandButton>
-                                    <h:commandButton class="btn btn-danger" value="Eliminar"  actionListener="#{beanSpreadsheetType.deleteSpreadsheet()}"></h:commandButton>  
+                                    <h:commandButton class="btn btn-danger" value="Eliminar"  actionListener="#{beanSpreadsheetType.borradoLogico(beanSpreadsheetType.idTipoPlanilla)}"></h:commandButton>  
                                     <h:commandButton class="btn btn-warning" value="Editar"  actionListener="#{beanSpreadsheetType.changesSpreandsHeet()}"></h:commandButton>
                                     <h:commandButton class="btn btn-info" value="Limpiar"  actionListener="#{beanSpreadsheetType.limpiarCampos()}"></h:commandButton>  
                                 </div>

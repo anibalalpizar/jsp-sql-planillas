@@ -80,6 +80,23 @@ public class beanCategoryPayment {
         
     }
     
+
+public void borradoLogico(int idOrden) throws SNMPExceptions, SQLException {
+        setMensaje("");
+        CategoryPaymentDB catDB = new CategoryPaymentDB();
+        String resultado = catDB.validar(idOrden);
+        if (resultado.equals("Existe")) {
+            catDB.borradoLogicoWork(idOrden);
+            setMensaje("Borrado Correctamente");
+        } else {
+            if (resultado.equals("Orden borrada")) {
+                setMensaje(resultado);
+            } else {
+                setMensaje("No existe");
+            }
+        }
+        
+    }
     public void changesCategoryPayment() throws SNMPExceptions, SQLException {
         CategoryPayment cat = new CategoryPayment(idCategoriPago, descripcion, precio);
         CategoryPaymentDB catDB = new CategoryPaymentDB();

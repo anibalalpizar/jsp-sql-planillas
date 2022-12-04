@@ -35,7 +35,7 @@
            
            
            <h:commandButton value="Guardar" actionListener="#{beanCategoryPayment.insertCategoryPayment()}"></h:commandButton>
-           <h:commandButton value="Eliminar" actionListener="#{beanCategoryPayment.deleteCategoryPayment()}" ></h:commandButton>  
+           <h:commandButton value="Eliminar" actionListener="#{beanCategoryPayment.borradoLogico(beanCategoryPayment.idCategoriPago)}" ></h:commandButton>  
            <h:commandButton value="Editar" actionListener="#{beanCategoryPayment.changesCategoryPayment()}" ></h:commandButton>  
            <h:commandButton value="Limpiar" actionListener="#{beanCategoryPayment.limpiarCampos()}" ></h:commandButton>   
             

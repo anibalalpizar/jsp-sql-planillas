@@ -70,6 +70,23 @@ public class beanSpreadsheetType implements Serializable {
         spreDB.DeleteSpreadsheet(spreads);
         
     }
+
+    public void borradoLogico(int idOrden) throws SNMPExceptions, SQLException {
+        setMensaje("");
+        SpreadsheetTypeDB spreDB = new SpreadsheetTypeDB();
+        String resultado = spreDB.validar(idOrden);
+        if (resultado.equals("Existe")) {
+            spreDB.borradoLogicoWork(idOrden);
+            setMensaje("Borrado Correctamente");
+        } else {
+            if (resultado.equals("Orden borrada")) {
+                setMensaje(resultado);
+            } else {
+                setMensaje("No existe");
+            }
+        }
+        
+    }
     
     public void changesSpreandsHeet() throws SNMPExceptions, SQLException {
         SpreadsheetType spe = new SpreadsheetType(idTipoPlanilla, descripcion);

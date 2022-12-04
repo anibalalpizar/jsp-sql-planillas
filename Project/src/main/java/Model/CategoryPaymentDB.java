@@ -5,6 +5,7 @@ import DAO.SNMPExceptions;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class CategoryPaymentDB {
@@ -25,10 +26,11 @@ public class CategoryPaymentDB {
 
             CategoryPayment cat = new CategoryPayment();
             cat = pCat;
-            strSQL = "INSERT INTO CategoriaPago(IDCategoriaPago, Descripcion, Precio) VALUES"
+            strSQL = "INSERT INTO CategoriaPago(IDCategoriaPago, Descripcion, Precio, Borrado) VALUES"
                     + "(" + "'" + cat.getIdCategoriaPago() + "'" + ","
                     + "'" + cat.getDescripcion() + "'" + ","
-                    + "'" + cat.getPrecio() + "'" + ")";
+                    + "'" + cat.getPrecio() + "'" + ","
+                    + "'" + cat.borrado + "'" + ")";
 
             accesoDatos.ejecutaSQL(strSQL);
 
@@ -62,6 +64,59 @@ public class CategoryPaymentDB {
 
     }
 
+ public void borradoLogicoWork(int idOrden) throws SNMPExceptions {
+
+        String Query = "";
+        ArrayList<CategoryPayment> listaDatosCompra = new ArrayList();
+        try {
+            //Se obtienen los valores del objeto
+
+            Query = "update CategoriaPago SET Borrado = 1 where IDCategoriaPago = " + idOrden;
+
+            //Se ejecuta la sentencia SQL
+            accesoDatos.ejecutaSQL(Query);
+
+        } catch (SQLException e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION, e.getMessage(), e.getErrorCode());
+        } catch (Exception e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION, e.getMessage());
+        }
+
+    }
+
+
+ public String validar(int idOrden) throws SNMPExceptions {
+        String mensaje = "";
+        String Query = "";
+        ArrayList<CategoryPayment> listaDatosCompra = new ArrayList();
+        try {
+            //Se obtienen los valores del objeto
+
+            Query = "select * from  CategoriaPago where IDCategoriaPago = " + idOrden;
+
+            //Se ejecuta la sentencia SQL
+            ResultSet rsPA = accesoDatos.ejecutaSQLRetornaRS(Query);
+
+            while (rsPA.next()) {
+                int borradoLogico = rsPA.getInt("Borrado");
+                if (borradoLogico == 1) {
+                    mensaje = "Orden borrada";
+                } else {
+                    if (borradoLogico == 0) {
+                        mensaje = "Existe";
+                    }
+                }
+
+            }
+        } catch (SQLException e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION, e.getMessage(), e.getErrorCode());
+        } catch (Exception e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION, e.getMessage());
+        }
+
+        return mensaje;
+    }
+
     public void ChangesCategoryPayment(CategoryPayment pCat) throws SNMPExceptions, SQLException {
 
         String strSQL = "";
@@ -82,17 +137,18 @@ public class CategoryPaymentDB {
         }
 
     }
+
     public LinkedList<CategoryPayment> moTodo() throws SNMPExceptions, SQLException {
         String select = "";
         LinkedList<CategoryPayment> listaCategory = new LinkedList<CategoryPayment>();
 
         try {
-            
+
             AccesoDatos accesoDatos = new AccesoDatos();
 
             //Se crea la sentencia de Busqueda
             select
-                    = "SELECT IDCategoriaPago, Descripcion, Precio FROM CategoriaPago";
+                    = "SELECT IDCategoriaPago, Descripcion, Precio FROM CategoriaPago where Borrado = 0";
             //se ejecuta la sentencia sql
             ResultSet rsPA = accesoDatos.ejecutaSQLRetornaRS(select);
             //se llama el array con los proyectos

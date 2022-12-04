@@ -70,7 +70,7 @@
                 <br/>  
 
                 <h:commandButton value="Guardar" actionListener="#{beanUser.insertUser()}"></h:commandButton>
-                <h:commandButton value="Eliminar" actionListener="#{beanUser.deleteUser()}"></h:commandButton>
+                <h:commandButton value="Eliminar" actionListener="#{beanUser.borradoLogico(beanUser.idUsuario)}"></h:commandButton>
                 <h:commandButton value="Editar" actionListener="#{beanUser.changesUser()}"></h:commandButton>
                 <h:commandButton value="Limpiar" actionListener="#{beanUser.limpiarCampos()}"></h:commandButton>
 

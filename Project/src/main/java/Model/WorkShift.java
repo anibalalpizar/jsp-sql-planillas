@@ -4,11 +4,13 @@ public class WorkShift {
     
     public int idTurno;
     public String descripcion;
+    public int borrado = 0;
     
     public WorkShift(int idTurno, String descripcion) {
         this.setIdTurno(idTurno);
         this.setDescripcion(descripcion);
     }
+    
     
     public WorkShift() {
     }

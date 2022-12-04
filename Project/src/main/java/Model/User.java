@@ -8,6 +8,7 @@ public class User {
     public String apellido1;
     public String apellido2;
     public int telefono;
+    public int borrado = 0;
 
     public User(int idUsuario, float salario, String nombre, String apellido1, String apellido2, int telefono) {
         this.setIdUsuario(idUsuario);

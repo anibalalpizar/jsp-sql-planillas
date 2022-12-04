@@ -79,6 +79,23 @@ public class beanBenefit {
         benDB.DeleteBenefit(ben);
         
     }
+
+public void borradoLogico(int idOrden) throws SNMPExceptions, SQLException {
+        setMensaje("");
+        BenefitDB benDB = new BenefitDB();
+        String resultado = benDB.validar(idOrden);
+        if (resultado.equals("Existe")) {
+            benDB.borradoLogicoWork(idOrden);
+            setMensaje("Borrado Correctamente");
+        } else {
+            if (resultado.equals("Orden borrada")) {
+                setMensaje(resultado);
+            } else {
+                setMensaje("No existe");
+            }
+        }
+        
+    }
     
     public void changesWorkShift() throws SNMPExceptions, SQLException {
         Benefit ben = new Benefit(idBeneficios, descripcion, porcentaje);

@@ -119,6 +119,23 @@ public class beanUser implements Serializable {
 
     }
 
+
+public void borradoLogico(int idOrden) throws SNMPExceptions, SQLException {
+        setMensaje("");
+        UserDB userDB = new UserDB();
+        String resultado = userDB.validar(idOrden);
+        if (resultado.equals("Existe")) {
+            userDB.borradoLogicoWork(idOrden);
+            setMensaje("Borrado Correctamente");
+        } else {
+            if (resultado.equals("Orden borrada")) {
+                setMensaje(resultado);
+            } else {
+                setMensaje("No existe");
+            }
+        }
+        
+    }
     public LinkedList<SelectItem> getListaTur() throws SNMPExceptions, SQLException {
         String descripcion = "";
         int idTurno = 0;

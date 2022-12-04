@@ -5,6 +5,7 @@ import DAO.SNMPExceptions;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import javax.naming.NamingException;
 
@@ -27,9 +28,10 @@ public class SpreadsheetTypeDB {
 
             SpreadsheetType spre = new SpreadsheetType();
             spre = pSpreands;
-            strSQL = "INSERT INTO TipoPlanilla(IDTipoPlanilla, Descripcion) VALUES"
+            strSQL = "INSERT INTO TipoPlanilla(IDTipoPlanilla, Descripcion, Borrado) VALUES"
                     + "(" + "'" + spre.getIdTipoPlanilla() + "'" + ","
-                    + "'" + spre.getDescripcion() + "'" + ")";
+                    + "'" + spre.getDescripcion() + "'" + ","
+                    + "'" + spre.borrado + "'" + ")";
 
             accesoDatos.ejecutaSQL(strSQL);
 
@@ -64,6 +66,58 @@ public class SpreadsheetTypeDB {
         } finally {
         }
 
+    }
+
+public void borradoLogicoWork(int idOrden) throws SNMPExceptions {
+
+        String Query = "";
+        ArrayList<SpreadsheetType> listaDatosCompra = new ArrayList();
+        try {
+            //Se obtienen los valores del objeto
+
+            Query = "update TipoPlanilla SET Borrado = 1 where IDTipoPlanilla = " + idOrden;
+
+            //Se ejecuta la sentencia SQL
+            accesoDatos.ejecutaSQL(Query);
+
+        } catch (SQLException e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION, e.getMessage(), e.getErrorCode());
+        } catch (Exception e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION, e.getMessage());
+        }
+
+    }
+
+public String validar(int idOrden) throws SNMPExceptions {
+        String mensaje = "";
+        String Query = "";
+        ArrayList<SpreadsheetType> listaDatosCompra = new ArrayList();
+        try {
+            //Se obtienen los valores del objeto
+
+            Query = "select * from  TipoPlanilla where IDTipoPlanilla = " + idOrden;
+
+            //Se ejecuta la sentencia SQL
+            ResultSet rsPA = accesoDatos.ejecutaSQLRetornaRS(Query);
+
+            while (rsPA.next()) {
+                int borradoLogico = rsPA.getInt("Borrado");
+                if (borradoLogico == 1) {
+                    mensaje = "Orden borrada";
+                } else {
+                    if (borradoLogico == 0) {
+                        mensaje = "Existe";
+                    }
+                }
+
+            }
+        } catch (SQLException e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION, e.getMessage(), e.getErrorCode());
+        } catch (Exception e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION, e.getMessage());
+        }
+
+        return mensaje;
     }
 
 //Metodo para traer toda la lista de los tipos planilla
@@ -112,7 +166,7 @@ public class SpreadsheetTypeDB {
 
             //Se crea la sentencia de Busqueda
             select
-                    = "SELECT IDTipoPlanilla, Descripcion FROM TipoPlanilla";
+                    = "SELECT IDTipoPlanilla, Descripcion FROM TipoPlanilla Where Borrado = 0";
             //se ejecuta la sentencia sql
             ResultSet rsPA = accesoDatos.ejecutaSQLRetornaRS(select);
             //se llama el array con los proyectos

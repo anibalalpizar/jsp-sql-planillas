@@ -5,6 +5,7 @@ import DAO.SNMPExceptions;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import javax.naming.NamingException;
 
@@ -28,9 +29,10 @@ public class WorkShiftDB {
 
             WorkShift wor = new WorkShift();
             wor = pWork;
-            strSQL = "INSERT INTO Turno(IDTurno, Descripcion) VALUES"
+            strSQL = "INSERT INTO Turno(IDTurno, Descripcion, Borrado) VALUES"
                     + "(" + "'" + wor.getIdTurno() + "'" + ","
-                    + "'" + wor.getDescripcion() + "'" + ")";
+                    + "'" + wor.getDescripcion() + "'" + ","
+                     + "'" + wor.borrado + "'" + ")";
 
             accesoDatos.ejecutaSQL(strSQL);
 
@@ -66,6 +68,58 @@ public class WorkShiftDB {
 
     }
 
+    public void borradoLogicoWork(int idOrden) throws SNMPExceptions {
+
+        String Query = "";
+        ArrayList<WorkShift> listaDatosCompra = new ArrayList();
+        try {
+            //Se obtienen los valores del objeto
+
+            Query = "update Turno SET Borrado = 1 where IDTurno = " + idOrden;
+
+            //Se ejecuta la sentencia SQL
+            accesoDatos.ejecutaSQL(Query);
+
+        } catch (SQLException e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION, e.getMessage(), e.getErrorCode());
+        } catch (Exception e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION, e.getMessage());
+        }
+
+    }
+
+    public String validar(int idOrden) throws SNMPExceptions {
+        String mensaje = "";
+        String Query = "";
+        ArrayList<WorkShift> listaDatosCompra = new ArrayList();
+        try {
+            //Se obtienen los valores del objeto
+
+            Query = "select * from  Turno where IDTurno = " + idOrden;
+
+            //Se ejecuta la sentencia SQL
+            ResultSet rsPA = accesoDatos.ejecutaSQLRetornaRS(Query);
+
+            while (rsPA.next()) {
+                int borradoLogico = rsPA.getInt("Borrado");
+                if (borradoLogico == 1) {
+                    mensaje = "Orden borrada";
+                } else {
+                    if (borradoLogico == 0) {
+                        mensaje = "Existe";
+                    }
+                }
+
+            }
+        } catch (SQLException e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION, e.getMessage(), e.getErrorCode());
+        } catch (Exception e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION, e.getMessage());
+        }
+
+        return mensaje;
+    }
+
 //Metodo para traer toda la lista de los Turnos
     public LinkedList<WorkShift> TurnosTodos() throws SNMPExceptions, SQLException {
 
@@ -73,7 +127,8 @@ public class WorkShiftDB {
         LinkedList<WorkShift> listaWorkShift = new LinkedList<WorkShift>();
         try {
             AccesoDatos accesodatos = new AccesoDatos();
-            select = "Select IDTurno, Descripcion from Turno";
+            select = "Select IDTurno, Descripcion from Turno Where Borrado = 0 ";
+
             ResultSet rsPA = accesodatos.ejecutaSQLRetornaRS(select);
             while (rsPA.next()) {
                 int idTurno = rsPA.getInt("IDTurno");
@@ -110,7 +165,7 @@ public class WorkShiftDB {
 
             //Se crea la sentencia de Busqueda
             select
-                    = "SELECT IDTurno, Descripcion FROM Turno";
+                    = "Select IDTurno, Descripcion from Turno Where Borrado = 0 ";
             //se ejecuta la sentencia sql
             ResultSet rsPA = accesoDatos.ejecutaSQLRetornaRS(select);
             //se llama el array con los proyectos

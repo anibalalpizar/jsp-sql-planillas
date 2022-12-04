@@ -5,6 +5,7 @@ public class CategoryPayment {
     public int idCategoriaPago;
     public String descripcion;
     public float precio;
+    public int borrado = 0;
 
     public CategoryPayment(int idCategoriaPago, String descripcion, float precio) {
         this.setIdCategoriaPago(idCategoriaPago);
