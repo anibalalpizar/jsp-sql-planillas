@@ -1,36 +1,36 @@
-C:\Users\ALE\OneDrive\Escritorio\Clones Proyecto JSP\Clon Nº2\jsp-sql-planillas\Project\src\main\java\Controller\beanBenefit.java
-C:\Users\ALE\OneDrive\Escritorio\Clones Proyecto JSP\Clon Nº2\jsp-sql-planillas\Project\src\main\java\DAO\CheckConection.java
-C:\Users\ALE\OneDrive\Escritorio\Clones Proyecto JSP\Clon Nº2\jsp-sql-planillas\Project\src\main\java\Controller\srvUsuario.java
-C:\Users\ALE\OneDrive\Escritorio\Clones Proyecto JSP\Clon Nº2\jsp-sql-planillas\Project\src\main\java\Controller\beanCategoryPayment.java
-C:\Users\ALE\OneDrive\Escritorio\Clones Proyecto JSP\Clon Nº2\jsp-sql-planillas\Project\src\main\java\Model\cargo.java
-C:\Users\ALE\OneDrive\Escritorio\Clones Proyecto JSP\Clon Nº2\jsp-sql-planillas\Project\src\main\java\com\mycompany\maintenance\resources\JavaEE8Resource.java
-C:\Users\ALE\OneDrive\Escritorio\Clones Proyecto JSP\Clon Nº2\jsp-sql-planillas\Project\src\main\java\Model\User.java
-C:\Users\ALE\OneDrive\Escritorio\Clones Proyecto JSP\Clon Nº2\jsp-sql-planillas\Project\src\main\java\Controller\beanLibroPago.java
-C:\Users\ALE\OneDrive\Escritorio\Clones Proyecto JSP\Clon Nº2\jsp-sql-planillas\Project\src\main\java\Model\Benefit.java
-C:\Users\ALE\OneDrive\Escritorio\Clones Proyecto JSP\Clon Nº2\jsp-sql-planillas\Project\src\main\java\Controller\beanSpreadsheetType.java
-C:\Users\ALE\OneDrive\Escritorio\Clones Proyecto JSP\Clon Nº2\jsp-sql-planillas\Project\src\main\java\Model\LibroPagoDB.java
-C:\Users\ALE\OneDrive\Escritorio\Clones Proyecto JSP\Clon Nº2\jsp-sql-planillas\Project\src\main\java\Model\UserDB.java
-C:\Users\ALE\OneDrive\Escritorio\Clones Proyecto JSP\Clon Nº2\jsp-sql-planillas\Project\src\main\java\Model\comprobar.java
-C:\Users\ALE\OneDrive\Escritorio\Clones Proyecto JSP\Clon Nº2\jsp-sql-planillas\Project\src\main\java\DAO\Conexion.java
-C:\Users\ALE\OneDrive\Escritorio\Clones Proyecto JSP\Clon Nº2\jsp-sql-planillas\Project\src\main\java\Controller\beanRegister.java
-C:\Users\ALE\OneDrive\Escritorio\Clones Proyecto JSP\Clon Nº2\jsp-sql-planillas\Project\src\main\java\Model\conexion.java
-C:\Users\ALE\OneDrive\Escritorio\Clones Proyecto JSP\Clon Nº2\jsp-sql-planillas\Project\src\main\java\Model\CategoryPayment.java
-C:\Users\ALE\OneDrive\Escritorio\Clones Proyecto JSP\Clon Nº2\jsp-sql-planillas\Project\src\main\java\Model\SpreadsheetType.java
-C:\Users\ALE\OneDrive\Escritorio\Clones Proyecto JSP\Clon Nº2\jsp-sql-planillas\Project\src\main\java\Model\WorkShiftDB.java
-C:\Users\ALE\OneDrive\Escritorio\Clones Proyecto JSP\Clon Nº2\jsp-sql-planillas\Project\src\main\java\Model\BenefitDB.java
-C:\Users\ALE\OneDrive\Escritorio\Clones Proyecto JSP\Clon Nº2\jsp-sql-planillas\Project\src\main\java\Model\Planilla.java
-C:\Users\ALE\OneDrive\Escritorio\Clones Proyecto JSP\Clon Nº2\jsp-sql-planillas\Project\src\main\java\Model\WorkShift.java
-C:\Users\ALE\OneDrive\Escritorio\Clones Proyecto JSP\Clon Nº2\jsp-sql-planillas\Project\src\main\java\Model\usuario.java
-C:\Users\ALE\OneDrive\Escritorio\Clones Proyecto JSP\Clon Nº2\jsp-sql-planillas\Project\src\main\java\Model\CategoryPaymentDB.java
-C:\Users\ALE\OneDrive\Escritorio\Clones Proyecto JSP\Clon Nº2\jsp-sql-planillas\Project\src\main\java\Model\DAOUSUARIO.java
-C:\Users\ALE\OneDrive\Escritorio\Clones Proyecto JSP\Clon Nº2\jsp-sql-planillas\Project\src\main\java\Model\RegisterDB.java
-C:\Users\ALE\OneDrive\Escritorio\Clones Proyecto JSP\Clon Nº2\jsp-sql-planillas\Project\src\main\java\Controller\beanUser.java
-C:\Users\ALE\OneDrive\Escritorio\Clones Proyecto JSP\Clon Nº2\jsp-sql-planillas\Project\src\main\java\Model\LibroPago.java
-C:\Users\ALE\OneDrive\Escritorio\Clones Proyecto JSP\Clon Nº2\jsp-sql-planillas\Project\src\main\java\Controller\beanPlanilla.java
-C:\Users\ALE\OneDrive\Escritorio\Clones Proyecto JSP\Clon Nº2\jsp-sql-planillas\Project\src\main\java\DAO\SNMPExceptions.java
-C:\Users\ALE\OneDrive\Escritorio\Clones Proyecto JSP\Clon Nº2\jsp-sql-planillas\Project\src\main\java\Controller\beanWorkShift.java
-C:\Users\ALE\OneDrive\Escritorio\Clones Proyecto JSP\Clon Nº2\jsp-sql-planillas\Project\src\main\java\com\mycompany\maintenance\JAXRSConfiguration.java
-C:\Users\ALE\OneDrive\Escritorio\Clones Proyecto JSP\Clon Nº2\jsp-sql-planillas\Project\src\main\java\DAO\AccesoDatos.java
-C:\Users\ALE\OneDrive\Escritorio\Clones Proyecto JSP\Clon Nº2\jsp-sql-planillas\Project\src\main\java\Model\SpreadsheetTypeDB.java
-C:\Users\ALE\OneDrive\Escritorio\Clones Proyecto JSP\Clon Nº2\jsp-sql-planillas\Project\src\main\java\Model\PlanillaDB.java
-C:\Users\ALE\OneDrive\Escritorio\Clones Proyecto JSP\Clon Nº2\jsp-sql-planillas\Project\src\main\java\Model\Register.java
+C:\Users\anibal\Desktop\jsp-sql-planillas\Project\src\main\java\DAO\AccesoDatos.java
+C:\Users\anibal\Desktop\jsp-sql-planillas\Project\src\main\java\Model\Benefit.java
+C:\Users\anibal\Desktop\jsp-sql-planillas\Project\src\main\java\Model\cargo.java
+C:\Users\anibal\Desktop\jsp-sql-planillas\Project\src\main\java\Model\WorkShiftDB.java
+C:\Users\anibal\Desktop\jsp-sql-planillas\Project\src\main\java\com\mycompany\maintenance\JAXRSConfiguration.java
+C:\Users\anibal\Desktop\jsp-sql-planillas\Project\src\main\java\Controller\beanCategoryPayment.java
+C:\Users\anibal\Desktop\jsp-sql-planillas\Project\src\main\java\Model\Register.java
+C:\Users\anibal\Desktop\jsp-sql-planillas\Project\src\main\java\Model\conexion.java
+C:\Users\anibal\Desktop\jsp-sql-planillas\Project\src\main\java\Model\UserDB.java
+C:\Users\anibal\Desktop\jsp-sql-planillas\Project\src\main\java\Controller\beanRegister.java
+C:\Users\anibal\Desktop\jsp-sql-planillas\Project\src\main\java\Model\RegisterDB.java
+C:\Users\anibal\Desktop\jsp-sql-planillas\Project\src\main\java\Controller\beanWorkShift.java
+C:\Users\anibal\Desktop\jsp-sql-planillas\Project\src\main\java\DAO\Conexion.java
+C:\Users\anibal\Desktop\jsp-sql-planillas\Project\src\main\java\com\mycompany\maintenance\resources\JavaEE8Resource.java
+C:\Users\anibal\Desktop\jsp-sql-planillas\Project\src\main\java\Controller\srvUsuario.java
+C:\Users\anibal\Desktop\jsp-sql-planillas\Project\src\main\java\Model\Planilla.java
+C:\Users\anibal\Desktop\jsp-sql-planillas\Project\src\main\java\Model\SpreadsheetType.java
+C:\Users\anibal\Desktop\jsp-sql-planillas\Project\src\main\java\Model\PlanillaDB.java
+C:\Users\anibal\Desktop\jsp-sql-planillas\Project\src\main\java\Model\User.java
+C:\Users\anibal\Desktop\jsp-sql-planillas\Project\src\main\java\Model\CategoryPayment.java
+C:\Users\anibal\Desktop\jsp-sql-planillas\Project\src\main\java\Controller\beanLibroPago.java
+C:\Users\anibal\Desktop\jsp-sql-planillas\Project\src\main\java\Controller\beanUser.java
+C:\Users\anibal\Desktop\jsp-sql-planillas\Project\src\main\java\Controller\beanPlanilla.java
+C:\Users\anibal\Desktop\jsp-sql-planillas\Project\src\main\java\Model\SpreadsheetTypeDB.java
+C:\Users\anibal\Desktop\jsp-sql-planillas\Project\src\main\java\Controller\beanBenefit.java
+C:\Users\anibal\Desktop\jsp-sql-planillas\Project\src\main\java\Model\comprobar.java
+C:\Users\anibal\Desktop\jsp-sql-planillas\Project\src\main\java\Model\CategoryPaymentDB.java
+C:\Users\anibal\Desktop\jsp-sql-planillas\Project\src\main\java\Model\LibroPago.java
+C:\Users\anibal\Desktop\jsp-sql-planillas\Project\src\main\java\DAO\SNMPExceptions.java
+C:\Users\anibal\Desktop\jsp-sql-planillas\Project\src\main\java\Model\usuario.java
+C:\Users\anibal\Desktop\jsp-sql-planillas\Project\src\main\java\Model\WorkShift.java
+C:\Users\anibal\Desktop\jsp-sql-planillas\Project\src\main\java\Model\BenefitDB.java
+C:\Users\anibal\Desktop\jsp-sql-planillas\Project\src\main\java\Model\DAOUSUARIO.java
+C:\Users\anibal\Desktop\jsp-sql-planillas\Project\src\main\java\DAO\CheckConection.java
+C:\Users\anibal\Desktop\jsp-sql-planillas\Project\src\main\java\Model\LibroPagoDB.java
+C:\Users\anibal\Desktop\jsp-sql-planillas\Project\src\main\java\Controller\beanSpreadsheetType.java
