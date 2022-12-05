@@ -1,6 +1,7 @@
 Controller\beanCategoryPayment.class
 Controller\beanPlanilla.class
 Model\CategoryPaymentDB.class
+Controller\Reporte.class
 Model\LibroPagoDB.class
 Model\BenefitDB.class
 Model\cargo.class
@@ -10,6 +11,7 @@ Controller\srvUsuario.class
 Model\Benefit.class
 Controller\beanLibroPago.class
 Controller\beanWorkShift.class
+DAO\EventoPDF.class
 Model\UserDB.class
 Controller\beanBenefit.class
 Model\SpreadsheetTypeDB.class
@@ -19,10 +21,13 @@ Controller\beanUser.class
 DAO\Conexion.class
 Controller\beanSpreadsheetType.class
 DAO\CheckConection.class
+DAO\ReportePDF.class
 Model\DAOUSUARIO.class
 Model\Planilla.class
+test\GenerarReporte.class
 Model\usuario.class
 Controller\beanRegister.class
+Model\CategoriaPago.class
 DAO\AccesoDatos.class
 Model\User.class
 Model\Register.class

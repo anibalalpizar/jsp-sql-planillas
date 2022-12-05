@@ -20,7 +20,7 @@ static final int OPERACION_EFECTUADA = 1;
      * @throws ClassNotFoundException
      */
 
-    public Connection conectar() {
+    public static Connection conectar() {
         Connection con = null;
         Statement stmt = null;
         try {

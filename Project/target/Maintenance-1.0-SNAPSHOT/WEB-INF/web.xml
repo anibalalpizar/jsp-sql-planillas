@@ -13,6 +13,10 @@
         <servlet-name>srvUsuario</servlet-name>
         <servlet-class>Controller.srvUsuario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>pdf</servlet-name>
+        <servlet-class>Controller.pdf</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
@@ -20,6 +24,10 @@
     <servlet-mapping>
         <servlet-name>srvUsuario</servlet-name>
         <url-pattern>/srvUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>pdf</servlet-name>
+        <url-pattern>/pdf</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
