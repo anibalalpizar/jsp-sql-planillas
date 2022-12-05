@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package DAO;
 
@@ -34,14 +35,14 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author anibal
+ * @author David
  */
 public class EventoPDF implements IEventHandler {
 
     private final Document documento;
     private String nombre;
     //Ruta de imagen o logotipo, recomendado 50 x50
-    public static final String IMG = "C:\\Users\\anibal\\Pictures\\q.png";
+   // public static final String IMG = "C:\\Users\\David\\Pictures\\q.png";
 
     public EventoPDF(Document doc, String n) {
         documento = doc;
@@ -88,7 +89,7 @@ public class EventoPDF implements IEventHandler {
         return rectanguloPie;
     }
 
-    /*
+    /**
      * Crea la tabla que contendra el mensaje del encabezado
      *
      * @param mensaje Mensaje que desplegaremos
@@ -99,9 +100,9 @@ public class EventoPDF implements IEventHandler {
         tablaEncabezado.setWidth(527F);
         Cell cell1, cell2;
 
-        Image img = new Image(ImageDataFactory.create(IMG));
+       // Image img = new Image(ImageDataFactory.create(IMG));
         cell2 = new Cell();
-        cell2.add(img.setAutoScale(true));
+       // cell2.add(img.setAutoScale(true));
         cell2.setBorder(Border.NO_BORDER);
         tablaEncabezado.addCell(cell2);
 

@@ -31,6 +31,7 @@ Model\CategoriaPago.class
 DAO\AccesoDatos.class
 Model\User.class
 Model\Register.class
+Model\ReporteVO.class
 Model\WorkShift.class
 DAO\SNMPExceptions.class
 Model\conexion.class

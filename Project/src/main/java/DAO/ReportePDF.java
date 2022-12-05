@@ -54,8 +54,8 @@ public class ReportePDF implements Reporte {
         PdfFont font = PdfFontFactory.createFont(FontConstants.HELVETICA);
         PdfFont bold = PdfFontFactory.createFont(FontConstants.HELVETICA_BOLD);
 
-        String tituloTabla[] = {"IDCATEGORIAPAGO", "Descripcion", "Precio", "Borrado"};
-        float[] anchoColumn = {3, 3, 3, 2, 1, 1};
+        String tituloTabla[] = {"IDCategoriaPago", "Descripcion", "Precio", "Borrado"};
+        float[] anchoColumn = {3, 3, 3, 2};
 
         Table table = new Table(anchoColumn);
         table.setWidth(UnitValue.createPercentValue(100));
@@ -84,7 +84,6 @@ public class ReportePDF implements Reporte {
                             line += valor;
                         }
                     } else {
-
                         if (valor == null || valor.trim().length() == 0) {
                             line += "-;";
                         } else {
