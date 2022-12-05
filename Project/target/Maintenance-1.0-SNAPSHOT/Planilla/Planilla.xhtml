@@ -53,15 +53,6 @@
                 <br/>   
                 <br/>
 
-
-                <!--       <h:outputText value="Empleado"></h:outputText>
-                        <h:selectOneMenu >
-                            <f:selectItems value="" ></f:selectItems> 
-                        </h:selectOneMenu>
-                -->
-                <br/>   
-                <br/>
-
                 <h:outputText value="Tipo Planilla"></h:outputText>
                 <h:selectOneMenu value="#{beanPlanilla.idTipoPlanilla}" >
                     <f:selectItems value="#{beanPlanilla.listaTipoPlanilla}" ></f:selectItems> 
@@ -79,44 +70,12 @@
 
                 <br/>   
                 <br/>
-
-                <!--         <h:outputText value="Cargo Empleado"></h:outputText>
-                       <h:selectOneMenu  >
-       
-       
-                           <select id="id">
-                               <option value="first">Operario Planta</option>
-                               <option value="second">Contador</option>
-       
-                           </select>
-       
-       
-       
-                       </h:selectOneMenu>
-                -->
                 <br/>   
                 <br/>
 
-                <!-- 
-                             <h:outputText value="Deduccion"></h:outputText>
-                             <h:selectOneMenu >
-                                 <f:selectItems value="#"></f:selectItems> 
-                             </h:selectOneMenu>
-             
-                             <br/>   
-                             <br/>
-             
-                             <h:outputText value="Categoria Pago"></h:outputText>
-                             <h:selectOneMenu  >
-                                 <f:selectItems value=""></f:selectItems> 
-                             </h:selectOneMenu>
-                -->
-
-
-
 
                 <h:commandButton value="Guardar" actionListener="#{beanPlanilla.insertPlanilla()}"></h:commandButton>
-                <h:commandButton value="Eliminar"></h:commandButton>
+                <h:commandButton value="Eliminar" actionListener="#{beanPlanilla.borradoLogico(beanPlanilla.idPlanilla)}"></h:commandButton>
                 <h:commandButton value="Editar" ></h:commandButton>
                 <h:commandButton value="Limpiar" ></h:commandButton>
 
@@ -183,15 +142,6 @@
                 <h:commandButton value="Consultar Planillas" actionListener="#{beanPlanilla.mostrarLista()}"></h:commandButton>
 
             </div>
-
-
-
-
-
-
-
-
-
 
         </h:form>
     </h:body>

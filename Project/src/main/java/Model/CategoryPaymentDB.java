@@ -64,7 +64,7 @@ public class CategoryPaymentDB {
 
     }
 
- public void borradoLogicoWork(int idOrden) throws SNMPExceptions {
+    public void borradoLogico(int idOrden) throws SNMPExceptions {
 
         String Query = "";
         ArrayList<CategoryPayment> listaDatosCompra = new ArrayList();
@@ -84,8 +84,7 @@ public class CategoryPaymentDB {
 
     }
 
-
- public String validar(int idOrden) throws SNMPExceptions {
+    public String validar(int idOrden) throws SNMPExceptions {
         String mensaje = "";
         String Query = "";
         ArrayList<CategoryPayment> listaDatosCompra = new ArrayList();

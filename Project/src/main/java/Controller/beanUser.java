@@ -97,7 +97,7 @@ public class beanUser implements Serializable {
             setMensaje("Este Usuario ya fue creado");
         } else {
             userDB.InsertarUser(user);
-             setMensaje("Usuario Creado Correctamente");
+            setMensaje("Usuario Creado Correctamente");
         }
 
     }
@@ -119,13 +119,12 @@ public class beanUser implements Serializable {
 
     }
 
-
-public void borradoLogico(int idOrden) throws SNMPExceptions, SQLException {
+    public void borradoLogico(int idOrden) throws SNMPExceptions, SQLException {
         setMensaje("");
         UserDB userDB = new UserDB();
         String resultado = userDB.validar(idOrden);
         if (resultado.equals("Existe")) {
-            userDB.borradoLogicoWork(idOrden);
+            userDB.borradoLogico(idOrden);
             setMensaje("Borrado Correctamente");
         } else {
             if (resultado.equals("Orden borrada")) {
@@ -134,53 +133,9 @@ public void borradoLogico(int idOrden) throws SNMPExceptions, SQLException {
                 setMensaje("No existe");
             }
         }
-        
-    }
-    public LinkedList<SelectItem> getListaTur() throws SNMPExceptions, SQLException {
-        String descripcion = "";
-        int idTurno = 0;
-
-        LinkedList<WorkShift> lista = new LinkedList<WorkShift>();
-        WorkShiftDB wDB = new WorkShiftDB();
-        lista = wDB.TurnosTodos();
-
-        LinkedList resultList = new LinkedList();
-        resultList.add(new SelectItem(0, "Seleccione Turno"));
-
-        for (Iterator iter = lista.iterator();
-                iter.hasNext();) {
-
-            WorkShift work = (WorkShift) iter.next();
-            idTurno = work.getIdTurno();
-            descripcion = work.getDescripcion();
-            resultList.add(new SelectItem(idTurno, descripcion));
-
-        }
-        return resultList;
 
     }
 
-    public LinkedList<SelectItem> getListaTipoPlanilla() throws SNMPExceptions, SQLException {
-        int idTipoPlanilla = 0;
-        String descripcion = "";
-
-        LinkedList<SpreadsheetType> lista = new LinkedList<SpreadsheetType>();
-        SpreadsheetTypeDB sDB = new SpreadsheetTypeDB();
-        lista = sDB.PlanillaTodos();
-
-        LinkedList resultList = new LinkedList();
-        resultList.add(new SelectItem(0, "Seleccione Tipo Planilla"));
-
-        for (Iterator iter = lista.iterator(); iter.hasNext();) {
-            SpreadsheetType spre = (SpreadsheetType) iter.next();
-            idTipoPlanilla = spre.getIdTipoPlanilla();
-            descripcion = spre.getDescripcion();
-            resultList.add(new SelectItem(idTipoPlanilla, descripcion));
-
-        }
-        return resultList;
-
-    }
 
     public void mostrarLista() throws SNMPExceptions, SQLException {
         UserDB userDb = new UserDB();

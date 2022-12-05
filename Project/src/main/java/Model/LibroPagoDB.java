@@ -25,12 +25,13 @@ public class LibroPagoDB {
             LibroPago libro = new LibroPago();
             libro = pLibro;
 
-            strSQL = "INSERT INTO LibroPago(IDFactura, IDPlanilla, IDCategoriaPago, IDBeneficio, IDUsuario) VALUES"
+            strSQL = "INSERT INTO LibroPago(IDFactura, IDPlanilla, IDCategoriaPago, IDBeneficio, IDUsuario, CantHoras) VALUES"
                     + "(" + "'" + libro.getIdFactura() + "'" + ","
                     + "'" + libro.getIdPlanilla() + "'" + ","
                     + "'" + libro.getCategoriaPago() + "'" + ","
                     + "'" + libro.getIdBeneficio() + "'" + ","
-                    + "'" + libro.getIdUsuario() + "'" + ")";
+                    + "'" + libro.getIdUsuario() + "'" + ","
+                    + "'" + libro.getCantHoras() + "'" + ")";
 
             accesoDatos.ejecutaSQL(strSQL);
         } catch (SQLException e) {
@@ -46,11 +47,10 @@ public class LibroPagoDB {
         String strSQL = "";
 
         try {
-//update LibroPago set SalarioBruto = b.Porcentaje + c.Precio 
-//from Beneficio B , CategoriaPago c where IDFactura = 13
+
             LibroPago libro = new LibroPago();
             libro = pLibro;
-            strSQL = String.format("update LibroPago set SalarioBruto = u.Salario + c.Precio\n"
+            strSQL = String.format("update LibroPago set SalarioBruto = u.Salario + (c.Precio * l.CantHoras)\n"
                     + "from Usuario u , CategoriaPago c, LibroPago L where L.IDUsuario = u.IDUsuario AND L.IDCategoriaPago = C.IDCategoriaPago\n"
                     + "AND L.IDFactura =" + pLibro.getIdFactura());
 
@@ -70,8 +70,6 @@ public class LibroPagoDB {
         String strSQL = "";
 
         try {
-//update LibroPago set SalarioBruto = b.Porcentaje + c.Precio 
-//from Beneficio B , CategoriaPago c where IDFactura = 13
             LibroPago libro = new LibroPago();
             libro = pLibro;
             strSQL = String.format("update LibroPago set SalarioNeto = L.SalarioBruto - B.Porcentaje\n"
@@ -88,7 +86,6 @@ public class LibroPagoDB {
 
     }
 
-//metodo que se trae toda la lista de Cadidatos
     public LinkedList<LibroPago> moTodo() throws SNMPExceptions, SQLException {
         String select = "";
         LinkedList<LibroPago> listaPago = new LinkedList<LibroPago>();
@@ -99,7 +96,6 @@ public class LibroPagoDB {
 
             //Se crea la sentencia de Busqueda
             select
-                    //  = "SELECT C.IDFactura, C.IDPlanilla, C.IDCategoriaPago, C.IDBeneficio, O.Porcentaje, P.Precio FROM LibroPago C, Beneficio O, CategoriaPago P WHERE C.IDCategoriaPago = P.IDCategoriaPago and C.IDBeneficio = O.IDBeneficios";
                     = "SELECT C.IDFactura, C.IDPlanilla,u.Nombre, P.Descripcion, O.DescripcionBene, c.SalarioBruto, c.SalarioNeto\n"
                     + "FROM LibroPago C, Beneficio O, CategoriaPago P, Usuario u\n"
                     + "WHERE C.IDCategoriaPago = P.IDCategoriaPago and C.IDBeneficio = O.IDBeneficios and c.IDUsuario = u.IDUsuario";
@@ -119,8 +115,7 @@ public class LibroPagoDB {
 
                 //se construye el objeto.
                 LibroPago perLirbo = new LibroPago(idFactura, idPlanilla, nombre, descCate, descBene, ben, pay);
-                // LibroPago perLirbo = new LibroPago(idFactura, idPlanilla, nombre, descBene, descCate, ben, pay);
-//                  LibroPago perLirbo = new LibroPago(idFactura, idPlanilla, idBenefico, idCategoriPago, idUsuario, ben, pay);
+
                 listaPago.add(perLirbo);
             }
             rsPA.close();//se cierra el ResultSeat.
@@ -136,21 +131,38 @@ public class LibroPagoDB {
         return listaPago;
     }
 
-//    public String traerPrecioDeducion(LibroPago pPago) throws SNMPExceptions, SQLException {
-//
-//        String strSQL = "";
-//        try {
-//            LibroPago pago = new LibroPago();
-//            pago = pPago;
-//            strSQL = "SELECT Porcentaje FROM Beneficio WHERE = " + pago.getIdBeneficio();
-//            accesoDatos.ejecutaSQL(strSQL);
-//        }catch (SQLException e) {
-//            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION, e.getMessage(), e.getErrorCode());
-//        } catch (Exception e) {
-//            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION, e.getMessage());
-//        } finally {
-//        }
-//
-//
-//
+    public boolean consultLibroPago(int numPago) throws SNMPExceptions, SQLException {
+
+        boolean existe = false;
+        String select = "";
+        try {
+            //Se intancia la clase de acceso a datos
+            AccesoDatos accesoDatos = new AccesoDatos();
+
+            //Se crea la sentencia de Busqueda
+            select = "select * from LibroPago where IDFactura=" + numPago;
+
+            //se ejecuta la sentencia sql
+            ResultSet rsPA = accesoDatos.ejecutaSQLRetornaRS(select);
+            //se llama el array con los proyectos
+            if (rsPA.next()) {
+
+                existe = true;
+            }
+
+            rsPA.close();
+
+            return existe;
+
+        } catch (SQLException e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION,
+                    e.getMessage(), e.getErrorCode());
+        } catch (Exception e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION, e.getMessage());
+        } finally {
+
+        }
+
+    }
+
 }

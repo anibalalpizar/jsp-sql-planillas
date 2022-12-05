@@ -11,8 +11,9 @@ public class Planilla {
     public String fechaInicio;
     public String fechaFinal;
     public String fechaPago;
+    public int borrado = 0;
 
-    public Planilla(int idPlanilla,String descripcion, int idTurno, int idTipoPlanilla, String fechaInicio,String  fechaFinal, String  fechaPago) {
+    public Planilla(int idPlanilla, String descripcion, int idTurno, int idTipoPlanilla, String fechaInicio, String fechaFinal, String fechaPago) {
         this.setIdPlanilla(idPlanilla);
         this.setDescripcion(descripcion);
         this.setIdTurno(idTurno);
@@ -33,8 +34,6 @@ public class Planilla {
         this.descripcion = descripcion;
     }
 
-
-
     public int getIdTurno() {
         return idTurno;
     }
@@ -51,8 +50,6 @@ public class Planilla {
         this.idTipoPlanilla = idTipoPlanilla;
     }
 
-
-
     public int getIdPlanilla() {
         return idPlanilla;
     }
@@ -61,27 +58,27 @@ public class Planilla {
         this.idPlanilla = idPlanilla;
     }
 
-    public String  getFechaInicio() {
+    public String getFechaInicio() {
         return fechaInicio;
     }
 
-    public void setFechaInicio(String  fechaInicio) {
+    public void setFechaInicio(String fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
-    public String  getFechaFinal() {
+    public String getFechaFinal() {
         return fechaFinal;
     }
 
-    public void setFechaFinal(String  fechaFinal) {
+    public void setFechaFinal(String fechaFinal) {
         this.fechaFinal = fechaFinal;
     }
 
-    public String  getFechaPago() {
+    public String getFechaPago() {
         return fechaPago;
     }
 
-    public void setFechaPago(String  fechaPago) {
+    public void setFechaPago(String fechaPago) {
         this.fechaPago = fechaPago;
     }
 

@@ -9,17 +9,17 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class BenefitDB {
-    
+
     private AccesoDatos accesoDatos = new AccesoDatos();
     private Connection conn;
-    
+
     public BenefitDB() {
         accesoDatos = new AccesoDatos();
         accesoDatos.setDbConn(conn);
-        
+
     }
 
-public void InsertBenefit(Benefit pBen) throws SNMPExceptions, SQLException {
+    public void InsertBenefit(Benefit pBen) throws SNMPExceptions, SQLException {
 
         String strSQL = "";
 
@@ -31,7 +31,7 @@ public void InsertBenefit(Benefit pBen) throws SNMPExceptions, SQLException {
                     + "(" + "'" + ben.getIdBeneficios() + "'" + ","
                     + "'" + ben.getDescripcion() + "'" + ","
                     + "'" + ben.getPorcentaje() + "'" + ","
-                     + "'" + ben.borrado + "'" + ")";
+                    + "'" + ben.borrado + "'" + ")";
 
             accesoDatos.ejecutaSQL(strSQL);
 
@@ -44,7 +44,7 @@ public void InsertBenefit(Benefit pBen) throws SNMPExceptions, SQLException {
 
     }
 
-public void DeleteBenefit(Benefit pBen) throws SNMPExceptions, SQLException {
+    public void DeleteBenefit(Benefit pBen) throws SNMPExceptions, SQLException {
 
         String strSQL = "";
 
@@ -55,7 +55,7 @@ public void DeleteBenefit(Benefit pBen) throws SNMPExceptions, SQLException {
             strSQL = "DELETE FROM Beneficio WHERE IDBeneficios = " + ben.getIdBeneficios();
 
             accesoDatos.ejecutaSQL(strSQL);
-         
+
         } catch (SQLException e) {
             throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION, e.getMessage(), e.getErrorCode());
         } catch (Exception e) {
@@ -65,7 +65,7 @@ public void DeleteBenefit(Benefit pBen) throws SNMPExceptions, SQLException {
 
     }
 
-public void borradoLogicoWork(int idOrden) throws SNMPExceptions {
+    public void borradoLogico(int idOrden) throws SNMPExceptions {
 
         String Query = "";
         ArrayList<Benefit> listaDatosCompra = new ArrayList();
@@ -85,7 +85,7 @@ public void borradoLogicoWork(int idOrden) throws SNMPExceptions {
 
     }
 
-public String validar(int idOrden) throws SNMPExceptions {
+    public String validar(int idOrden) throws SNMPExceptions {
         String mensaje = "";
         String Query = "";
         ArrayList<Benefit> listaDatosCompra = new ArrayList();
@@ -117,15 +117,15 @@ public String validar(int idOrden) throws SNMPExceptions {
         return mensaje;
     }
 
- public void ChangesBenefit(Benefit pBen) throws SNMPExceptions, SQLException {
+    public void ChangesBenefit(Benefit pBen) throws SNMPExceptions, SQLException {
 
         String strSQL = "";
 
         try {
 
-            Benefit ben= new Benefit();
+            Benefit ben = new Benefit();
             ben = pBen;
-             strSQL= String.format("UPDATE Beneficio set DescripcionBene = '%s', Porcentaje = %f where IDBeneficios = %d", pBen.descripcion, pBen.porcentaje, pBen.idBeneficios);
+            strSQL = String.format("UPDATE Beneficio set DescripcionBene = '%s', Porcentaje = %f where IDBeneficios = %d", pBen.descripcion, pBen.porcentaje, pBen.idBeneficios);
 
             accesoDatos.ejecutaSQL(strSQL);
 
@@ -136,82 +136,78 @@ public String validar(int idOrden) throws SNMPExceptions {
         } finally {
         }
 
-
-
     }
 
-
 //metodo que se trae toda la lista de Cadidatos
-    public LinkedList<Benefit> moTodo() throws SNMPExceptions, SQLException{
-        String select= "";
-        LinkedList<Benefit> listaBenefit= new LinkedList<Benefit>();
-        
-        try{
+    public LinkedList<Benefit> moTodo() throws SNMPExceptions, SQLException {
+        String select = "";
+        LinkedList<Benefit> listaBenefit = new LinkedList<Benefit>();
+
+        try {
             //Se intancia la clase de acceso a datos
-            AccesoDatos accesoDatos= new AccesoDatos();
-            
+            AccesoDatos accesoDatos = new AccesoDatos();
+
             //Se crea la sentencia de Busqueda
-            select=
-                    "SELECT IDBeneficios, DescripcionBene, Porcentaje FROM Beneficio Where Borrado = 0";
+            select
+                    = "SELECT IDBeneficios, DescripcionBene, Porcentaje FROM Beneficio Where Borrado = 0";
             //se ejecuta la sentencia sql
-            ResultSet rsPA= accesoDatos.ejecutaSQLRetornaRS(select);
+            ResultSet rsPA = accesoDatos.ejecutaSQLRetornaRS(select);
             //se llama el array con los proyectos
-            while(rsPA.next()){
-                
-                int idBeneficio= rsPA.getInt("IDBeneficios");
+            while (rsPA.next()) {
+
+                int idBeneficio = rsPA.getInt("IDBeneficios");
                 String descripcion = rsPA.getString("DescripcionBene");
-                float precio= rsPA.getFloat("Porcentaje");
+                float precio = rsPA.getFloat("Porcentaje");
                 //se construye el objeto.
-                Benefit perBen= new Benefit(idBeneficio, descripcion, precio);
-                
+                Benefit perBen = new Benefit(idBeneficio, descripcion, precio);
+
                 listaBenefit.add(perBen);
             }
             rsPA.close();//se cierra el ResultSeat.
-            
-        }catch(SQLException e){
-            throw new SNMPExceptions (SNMPExceptions.SQL_EXCEPTION,
-                                     e.getMessage(),e.getErrorCode());
-        }catch(Exception e){
-            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION,e.getMessage());
-        }finally{
-            
+
+        } catch (SQLException e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION,
+                    e.getMessage(), e.getErrorCode());
+        } catch (Exception e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION, e.getMessage());
+        } finally {
+
         }
         return listaBenefit;
     }
 
-public boolean consultBenefit(int numIdBenefit) throws SNMPExceptions, SQLException{
-           
+    public boolean consultBenefit(int numIdBenefit) throws SNMPExceptions, SQLException {
+
         boolean existe = false;
-        String select="";
-         try{
+        String select = "";
+        try {
             //Se intancia la clase de acceso a datos
-            AccesoDatos accesoDatos= new AccesoDatos();
-            
+            AccesoDatos accesoDatos = new AccesoDatos();
+
             //Se crea la sentencia de Busqueda
-            select="select * from Beneficio where IDBeneficios="+numIdBenefit;
-                    
+            select = "select * from Beneficio where IDBeneficios=" + numIdBenefit;
+
             //se ejecuta la sentencia sql
-            ResultSet rsPA= accesoDatos.ejecutaSQLRetornaRS(select);
+            ResultSet rsPA = accesoDatos.ejecutaSQLRetornaRS(select);
             //se llama el array con los proyectos
-            if(rsPA.next()){
-                
-                existe=true;
+            if (rsPA.next()) {
+
+                existe = true;
             }
-            
+
             rsPA.close();
-      
+
             return existe;
-            
-        }catch(SQLException e){
-            throw new SNMPExceptions (SNMPExceptions.SQL_EXCEPTION,
-                                     e.getMessage(),e.getErrorCode());
-        }catch(Exception e){
-            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION,e.getMessage());
-        }finally{
-            
+
+        } catch (SQLException e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION,
+                    e.getMessage(), e.getErrorCode());
+        } catch (Exception e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION, e.getMessage());
+        } finally {
+
         }
-        
+
     }
-    
-    
+
 }

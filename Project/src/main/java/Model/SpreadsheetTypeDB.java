@@ -68,7 +68,7 @@ public class SpreadsheetTypeDB {
 
     }
 
-public void borradoLogicoWork(int idOrden) throws SNMPExceptions {
+    public void borradoLogico(int idOrden) throws SNMPExceptions {
 
         String Query = "";
         ArrayList<SpreadsheetType> listaDatosCompra = new ArrayList();
@@ -88,7 +88,7 @@ public void borradoLogicoWork(int idOrden) throws SNMPExceptions {
 
     }
 
-public String validar(int idOrden) throws SNMPExceptions {
+    public String validar(int idOrden) throws SNMPExceptions {
         String mensaje = "";
         String Query = "";
         ArrayList<SpreadsheetType> listaDatosCompra = new ArrayList();
@@ -129,7 +129,7 @@ public String validar(int idOrden) throws SNMPExceptions {
 
             AccesoDatos datos = new AccesoDatos();
 
-            select = "Select IDTipoPlanilla, Descripcion from TipoPlanilla";
+            select = "SELECT IDTipoPlanilla, Descripcion FROM TipoPlanilla Where Borrado = 0";
             ResultSet rsPA = datos.ejecutaSQLRetornaRS(select);
             while (rsPA.next()) {
                 int idTipoPlanilla = rsPA.getInt("IDTipoPlanilla");
@@ -194,8 +194,7 @@ public String validar(int idOrden) throws SNMPExceptions {
     }
 
 //Modificar SpreandHeet
-
- public void ChangesSpreandsHeet(SpreadsheetType pSpeands) throws SNMPExceptions, SQLException {
+    public void ChangesSpreandsHeet(SpreadsheetType pSpeands) throws SNMPExceptions, SQLException {
 
         String strSQL = "";
 
@@ -203,7 +202,7 @@ public String validar(int idOrden) throws SNMPExceptions {
 
             SpreadsheetType spe = new SpreadsheetType();
             spe = pSpeands;
-             strSQL= String.format("UPDATE TipoPlanilla set Descripcion = '%s' where IDTipoPlanilla = %d", pSpeands.descripcion, pSpeands.idTipoPlanilla);
+            strSQL = String.format("UPDATE TipoPlanilla set Descripcion = '%s' where IDTipoPlanilla = %d", pSpeands.descripcion, pSpeands.idTipoPlanilla);
 
             accesoDatos.ejecutaSQL(strSQL);
 
@@ -216,38 +215,38 @@ public String validar(int idOrden) throws SNMPExceptions {
 
     }
 
-public boolean consultSpreandsheetType(int numIdSpreeand) throws SNMPExceptions, SQLException{
-           
+    public boolean consultSpreandsheetType(int numIdSpreeand) throws SNMPExceptions, SQLException {
+
         boolean existe = false;
-        String select="";
-         try{
+        String select = "";
+        try {
             //Se intancia la clase de acceso a datos
-            AccesoDatos accesoDatos= new AccesoDatos();
-            
+            AccesoDatos accesoDatos = new AccesoDatos();
+
             //Se crea la sentencia de Busqueda
-            select="select * from TipoPlanilla where IDTipoPlanilla="+numIdSpreeand;
-                    
+            select = "select * from TipoPlanilla where IDTipoPlanilla=" + numIdSpreeand;
+
             //se ejecuta la sentencia sql
-            ResultSet rsPA= accesoDatos.ejecutaSQLRetornaRS(select);
+            ResultSet rsPA = accesoDatos.ejecutaSQLRetornaRS(select);
             //se llama el array con los proyectos
-            if(rsPA.next()){
-                
-                existe=true;
+            if (rsPA.next()) {
+
+                existe = true;
             }
-            
+
             rsPA.close();
-      
+
             return existe;
-            
-        }catch(SQLException e){
-            throw new SNMPExceptions (SNMPExceptions.SQL_EXCEPTION,
-                                     e.getMessage(),e.getErrorCode());
-        }catch(Exception e){
-            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION,e.getMessage());
-        }finally{
-            
+
+        } catch (SQLException e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION,
+                    e.getMessage(), e.getErrorCode());
+        } catch (Exception e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION, e.getMessage());
+        } finally {
+
         }
-        
+
     }
 
 }

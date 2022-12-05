@@ -54,8 +54,6 @@ public class WorkShiftDB {
             WorkShift wor = new WorkShift();
             wor = pWork;
             strSQL = "DELETE FROM Turno WHERE IDTurno = " + wor.getIdTurno();
-//                    + "(" + "'" + spre.getIdTipoPlanilla() + "'" + ","
-//                    + "'" + spre.getDescripcion() + "'" + ")";
 
             accesoDatos.ejecutaSQL(strSQL);
 
@@ -198,15 +196,10 @@ public class WorkShiftDB {
         String strSQL = "";
 
         try {
-//UPDATE Usuario set Nombre ='Alejandro' WHERE IDUsuario = 601110222
 
             WorkShift wor = new WorkShift();
             wor = pWork;
             strSQL = String.format("UPDATE Turno set Descripcion = '%s' where IDTurno = %d", pWork.descripcion, pWork.idTurno);
-//            strSQL = "UPDATE Turno set Descripcion="+ wor.getDescripcion()
-//                     +" WHERE IDTurno=" + wor.getIdTurno();
-//                    + "(" + "'" + wor.getIdTurno() + "'" + ","
-//                    + "'" + wor.getDescripcion() + "'" + ")";
 
             accesoDatos.ejecutaSQL(strSQL);
 

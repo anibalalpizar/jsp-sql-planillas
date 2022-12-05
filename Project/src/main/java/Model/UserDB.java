@@ -55,8 +55,6 @@ public class UserDB {
             User user = new User();
             user = pUser;
             strSQL = "DELETE FROM Usuario WHERE IDUsuario = " + user.getIdUsuario();
-//                    + "(" + "'" + spre.getIdTipoPlanilla() + "'" + ","
-//                    + "'" + spre.getDescripcion() + "'" + ")";
 
             accesoDatos.ejecutaSQL(strSQL);
 
@@ -69,7 +67,7 @@ public class UserDB {
 
     }
 
-public void borradoLogicoWork(int idOrden) throws SNMPExceptions {
+    public void borradoLogico(int idOrden) throws SNMPExceptions {
 
         String Query = "";
         ArrayList<User> listaDatosCompra = new ArrayList();
@@ -89,7 +87,7 @@ public void borradoLogicoWork(int idOrden) throws SNMPExceptions {
 
     }
 
- public String validar(int idOrden) throws SNMPExceptions {
+    public String validar(int idOrden) throws SNMPExceptions {
         String mensaje = "";
         String Query = "";
         ArrayList<User> listaDatosCompra = new ArrayList();
@@ -171,7 +169,7 @@ public void borradoLogicoWork(int idOrden) throws SNMPExceptions {
             User user = new User();
             user = pUser;
             strSQL = String.format("UPDATE Usuario set Salario = %f, Nombre = '%s', Apellido1 = '%s', Apellido2 = '%s', Telefono = %d where IDUsuario = %d",
-                     pUser.salario, pUser.nombre, pUser.apellido1, pUser.apellido2, pUser.telefono, pUser.idUsuario);
+                    pUser.salario, pUser.nombre, pUser.apellido1, pUser.apellido2, pUser.telefono, pUser.idUsuario);
 
             accesoDatos.ejecutaSQL(strSQL);
 
@@ -184,37 +182,37 @@ public void borradoLogicoWork(int idOrden) throws SNMPExceptions {
 
     }
 
- public boolean consultarUser(int numUser) throws SNMPExceptions, SQLException{
-           
+    public boolean consultarUser(int numUser) throws SNMPExceptions, SQLException {
+
         boolean existe = false;
-        String select="";
-         try{
+        String select = "";
+        try {
             //Se intancia la clase de acceso a datos
-            AccesoDatos accesoDatos= new AccesoDatos();
-            
+            AccesoDatos accesoDatos = new AccesoDatos();
+
             //Se crea la sentencia de Busqueda
-            select="select * from Usuario where IDUsuario="+numUser;
-                    
+            select = "select * from Usuario where IDUsuario=" + numUser;
+
             //se ejecuta la sentencia sql
-            ResultSet rsPA= accesoDatos.ejecutaSQLRetornaRS(select);
+            ResultSet rsPA = accesoDatos.ejecutaSQLRetornaRS(select);
             //se llama el array con los proyectos
-            if(rsPA.next()){
-                
-                existe=true;
+            if (rsPA.next()) {
+
+                existe = true;
             }
-            
+
             rsPA.close();
-      
+
             return existe;
-            
-        }catch(SQLException e){
-            throw new SNMPExceptions (SNMPExceptions.SQL_EXCEPTION,
-                                     e.getMessage(),e.getErrorCode());
-        }catch(Exception e){
-            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION,e.getMessage());
-        }finally{
-            
+
+        } catch (SQLException e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION,
+                    e.getMessage(), e.getErrorCode());
+        } catch (Exception e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION, e.getMessage());
+        } finally {
+
         }
-        
+
     }
 }

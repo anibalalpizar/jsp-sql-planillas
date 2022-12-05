@@ -15,7 +15,7 @@
                 <br/>   
                 <br/>
 
-                <h:outputText value="Nº Factura"></h:outputText>
+                <h:outputText value="Nº Factura" ></h:outputText>
                 <h:inputText value="#{beanLibroPago.idFactura}"></h:inputText>
 
                 <br/>   
@@ -52,12 +52,19 @@
                 </h:selectOneMenu>
                 <br/>   
                 <br/>
-
+                
+                <h:outputText value="Cantidad Horas"></h:outputText>
+                <h:inputText value="#{beanLibroPago.cantHoras}"></h:inputText>
+                
                 <br/>   
                 <br/>  
                 <h:commandButton value="Guardar" actionListener="#{beanLibroPago.insertLibro()}"></h:commandButton>
                 <h:commandButton value="Realizar Calculos" actionListener="#{beanLibroPago.calculos()}"></h:commandButton>
-
+                <h:commandButton value="Limpiar" actionListener="#{beanWorkShift.limpiarCampos()}" ></h:commandButton>  
+                <br/>   
+                <br/> 
+                
+                <h:outputText value="#{beanLibroPago.mensaje}"></h:outputText>
 
             </div> 
             <div align="center" class="datagrid">

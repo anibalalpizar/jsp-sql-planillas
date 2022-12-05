@@ -76,7 +76,7 @@ public class beanSpreadsheetType implements Serializable {
         SpreadsheetTypeDB spreDB = new SpreadsheetTypeDB();
         String resultado = spreDB.validar(idOrden);
         if (resultado.equals("Existe")) {
-            spreDB.borradoLogicoWork(idOrden);
+            spreDB.borradoLogico(idOrden);
             setMensaje("Borrado Correctamente");
         } else {
             if (resultado.equals("Orden borrada")) {

@@ -86,7 +86,7 @@ public void borradoLogico(int idOrden) throws SNMPExceptions, SQLException {
         CategoryPaymentDB catDB = new CategoryPaymentDB();
         String resultado = catDB.validar(idOrden);
         if (resultado.equals("Existe")) {
-            catDB.borradoLogicoWork(idOrden);
+            catDB.borradoLogico(idOrden);
             setMensaje("Borrado Correctamente");
         } else {
             if (resultado.equals("Orden borrada")) {

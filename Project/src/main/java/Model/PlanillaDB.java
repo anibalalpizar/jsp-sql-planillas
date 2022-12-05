@@ -5,6 +5,7 @@ import DAO.SNMPExceptions;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
 
@@ -25,14 +26,15 @@ public class PlanillaDB {
             Planilla pla = new Planilla();
             pla = pPlanilla;
 
-            strSQL = "INSERT INTO Planilla(IDPlanilla, Descripcion, IDTurno, IDTipoPlanilla, FechaInico, FechaFinal, FechaPago) VALUES"
+            strSQL = "INSERT INTO Planilla(IDPlanilla, Descripcion, IDTurno, IDTipoPlanilla, FechaInico, FechaFinal, FechaPago, Borrado) VALUES"
                     + "(" + "'" + pla.getIdPlanilla() + "'" + ","
                     + "'" + pla.getDescripcion() + "'" + ","
                     + "'" + pla.getIdTurno() + "'" + ","
                     + "'" + pla.getIdTipoPlanilla() + "'" + ","
                     + "'" + pla.getFechaInicio() + "'" + ","
                     + "'" + pla.getFechaFinal() + "'" + ","
-                    + "'" + pla.getFechaPago() + "'" + ")";
+                    + "'" + pla.getFechaPago() + "'" + ","
+                     + "'" + pla.borrado + "'" + ")";
 
             accesoDatos.ejecutaSQL(strSQL);
         } catch (SQLException e) {
@@ -43,6 +45,58 @@ public class PlanillaDB {
         }
     }
 
+
+public void borradoLogicoWork(int idOrden) throws SNMPExceptions {
+
+        String Query = "";
+        ArrayList<Planilla> listaDatosCompra = new ArrayList();
+        try {
+            //Se obtienen los valores del objeto
+
+            Query = "update Planilla SET Borrado = 1 where IDPlanilla = " + idOrden;
+
+            //Se ejecuta la sentencia SQL
+            accesoDatos.ejecutaSQL(Query);
+
+        } catch (SQLException e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION, e.getMessage(), e.getErrorCode());
+        } catch (Exception e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION, e.getMessage());
+        }
+
+    }
+
+    public String validar(int idOrden) throws SNMPExceptions {
+        String mensaje = "";
+        String Query = "";
+        ArrayList<Planilla> listaDatosCompra = new ArrayList();
+        try {
+            //Se obtienen los valores del objeto
+
+            Query = "select * from  Planilla where IDPlanilla = " + idOrden;
+
+            //Se ejecuta la sentencia SQL
+            ResultSet rsPA = accesoDatos.ejecutaSQLRetornaRS(Query);
+
+            while (rsPA.next()) {
+                int borradoLogico = rsPA.getInt("Borrado");
+                if (borradoLogico == 1) {
+                    mensaje = "Orden borrada";
+                } else {
+                    if (borradoLogico == 0) {
+                        mensaje = "Existe";
+                    }
+                }
+
+            }
+        } catch (SQLException e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION, e.getMessage(), e.getErrorCode());
+        } catch (Exception e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION, e.getMessage());
+        }
+
+        return mensaje;
+    }
 //metodo que se trae toda la lista de Cadidatos
     public LinkedList<Planilla> moTodo() throws SNMPExceptions, SQLException {
         String select = "";
@@ -54,7 +108,7 @@ public class PlanillaDB {
 
             //Se crea la sentencia de Busqueda
             select
-                    = "SELECT IDPlanilla, Descripcion, IDTurno, IDTipoPlanilla, FechaInico, FechaFinal, FechaPago FROM Planilla";
+                    = "SELECT IDPlanilla, Descripcion, IDTurno, IDTipoPlanilla, FechaInico, FechaFinal, FechaPago FROM Planilla where Borrado = 0";
             //se ejecuta la sentencia sql
             ResultSet rsPA = accesoDatos.ejecutaSQLRetornaRS(select);
             //se llama el array con los proyectos
@@ -67,9 +121,7 @@ public class PlanillaDB {
                 String fechaInicio = rsPA.getString("FechaInico");
                 String fechaFinal = rsPA.getString("FechaFinal");
                 String fechaPago = rsPA.getString("FechaPago");
-//Date fechaInicio= rsPA.getDate("FechaInico");
-//Date fechaFinal= rsPA.getDate("FechaFinal");
-//Date fechaPago= rsPA.getDate("FechaPago");
+
                 //se construye el objeto.
                 Planilla perPlanilla = new Planilla(idPlanilla, descripcion, idTurno, idTipoPlanilla, fechaInicio, fechaFinal, fechaPago);
 
