@@ -63,4 +63,9 @@
         <managed-bean-class>Controller.beanRegister</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
+    <managed-bean>
+        <managed-bean-name>beanReporte</managed-bean-name>
+        <managed-bean-class>Controller.beanReporte</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
 </faces-config>
