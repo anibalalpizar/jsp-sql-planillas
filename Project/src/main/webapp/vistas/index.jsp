@@ -169,56 +169,62 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> <%
                                 </a>
                                 <ul class="treeview-menu">
                                     <li>
-                                        <a href="../Project/faces/Maintenance/SpreadsheetType.xhtml"><i class="fa fa-archive"></i>SpreadsheetType</a>
+                                        <a href="../Project/faces/Maintenance/SpreadsheetType.xhtml"><i class="fa fa-archive"></i>Tipo planilla</a>
                                     </li>
                                     <li>
-                                        <a href="../Project/faces/Maintenance/Benefit.xhtml"><i class="fa fa-tags"></i>Benefit</a>
+                                        <a href="../Project/faces/Maintenance/Benefit.xhtml"><i class="fa fa-tags"></i>Beneficio</a>
                                     </li>
                                     <li>
-                                        <a href="../Project/faces/Maintenance/CategoryPayment.xhtml"><i class="fa fa-cube"></i>Category Payment</a>
+                                        <a href="../Project/faces/Maintenance/CategoryPayment.xhtml"><i class="fa fa-cube"></i>Categoria pago</a>
                                     </li>
                                     <li>
-                                        <a href="../Project/faces/Maintenance/UserMaintenance.xhtml"><i class="fa fa-users"></i>User Maintenance</a>
+                                        <a href="../Project/faces/Maintenance/WorkShift.xhtml"><i class="fa fa-users"></i>Turno trabajo</a>
                                     </li>
                                     <li>
-                                        <a href="../Project/faces/Maintenance/UserMaintenance2.xhtml"><i class="fa fa-users"></i>User Maintenance 2</a>
-                                    </li>
-                                    <li>
-                                        <a href="../Project/faces/Maintenance/UserTable.xhtml"><i class="fa fa-users"></i>User Table</a>
-                                    </li>
-                                    <li>
-                                        <a href="../Project/faces/Maintenance/WorkShift.xhtml"><i class="fa fa-users"></i>WorkShift</a>
+                                        <a href="../Project/faces/Maintenance/UserMaintenance2.xhtml"><i class="fa fa-users"></i>Empleados</a>
                                     </li>
                                 </ul>
                             </li>
                             <li class="treeview">
                                 <a href="#"
-                                   ><i class="fa fa-cart-arrow-down"></i> <span>IGNORAR</span>
+                                   ><i class="glyphicon glyphicon-th-large"></i>
+                                    <span>Planillas</span>
                                     <span class="pull-right-container">
                                         <i class="fa fa-angle-left pull-right"></i>
                                     </span>
                                 </a>
                                 <ul class="treeview-menu">
                                     <li>
-                                        <a href="#"
-                                           ><i class="fa fa-cart-arrow-down"></i>Nueva Venta</a
-                                        >
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-tags"></i>Administrar Ventas</a>
+                                        <a href="../Project/faces/Planilla/Planilla.xhtml"><i class="fa fa-archive"></i>Planilla</a>
                                     </li>
                                 </ul>
                             </li>
                             <li class="treeview">
                                 <a href="#"
-                                   ><i class="fa fa-area-chart"></i> <span>IGNORAR</span>
+                                   ><i class="glyphicon glyphicon-th-large"></i>
+                                    <span>Libro pago</span>
                                     <span class="pull-right-container">
                                         <i class="fa fa-angle-left pull-right"></i>
                                     </span>
                                 </a>
                                 <ul class="treeview-menu">
                                     <li>
-                                        <a href="#"><i class="fa fa-bar-chart"></i>Reportes Ventas</a>
+                                        <a href="../Project/faces/LibroPago/LibroPago.xhtml"><i class="fa fa-archive"></i>Libro Pago</a>
+                                    </li>
+                                </ul>
+                                
+                            </li>
+                            <li class="treeview">
+                                <a href="#"
+                                   ><i class="glyphicon glyphicon-th-large"></i>
+                                    <span>Reporte</span>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li>
+                                        <a href="../Project/faces/Planilla/Planilla.xhtml"><i class="fa fa-archive"></i>Planilla</a>
                                     </li>
                                 </ul>
                             </li>

@@ -169,16 +169,16 @@
                                 </a>
                                 <ul class="treeview-menu">
                                     <li>
-                                        <a href="../Project/faces/Maintenance/SpreadsheetType.xhtml"><i class="fa fa-archive"></i>SpreadsheetType</a>
+                                        <a href="../Project/faces/Maintenance/SpreadsheetType.xhtml"><i class="fa fa-archive"></i>Tipo planilla</a>
                                     </li>
                                     <li>
-                                        <a href="../Project/faces/Maintenance/Benefit.xhtml"><i class="fa fa-tags"></i>Benefit</a>
+                                        <a href="../Project/faces/Maintenance/Benefit.xhtml"><i class="fa fa-tags"></i>Beneficio</a>
                                     </li>
                                     <li>
-                                        <a href="../Project/faces/Maintenance/CategoryPayment.xhtml"><i class="fa fa-cube"></i>Category Payment</a>
+                                        <a href="../Project/faces/Maintenance/CategoryPayment.xhtml"><i class="fa fa-cube"></i>Categoria pago</a>
                                     </li>
                                     <li>
-                                        <a href="../Project/faces/Maintenance/WorkShift.xhtml"><i class="fa fa-users"></i>WorkShift</a>
+                                        <a href="../Project/faces/Maintenance/WorkShift.xhtml"><i class="fa fa-users"></i>Turno trabajo</a>
                                     </li>
                                 </ul>
                             </li>

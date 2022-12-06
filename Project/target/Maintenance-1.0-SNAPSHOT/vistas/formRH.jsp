@@ -169,13 +169,7 @@
                                 </a>
                                 <ul class="treeview-menu">
                                     <li>
-                                        <a href="../Project/faces/Maintenance/UserMaintenance.xhtml"><i class="fa fa-users"></i>User Maintenance</a>
-                                    </li>
-                                    <li>
-                                        <a href="../Project/faces/Maintenance/UserMaintenance2.xhtml"><i class="fa fa-users"></i>User Maintenance 2</a>
-                                    </li>
-                                    <li>
-                                        <a href="../Project/faces/Maintenance/UserTable.xhtml"><i class="fa fa-users"></i>User Table</a>
+                                        <a href="../Project/faces/Maintenance/UserMaintenance2.xhtml"><i class="fa fa-users"></i>Empleados</a>
                                     </li>
                                 </ul>
                             </li>
