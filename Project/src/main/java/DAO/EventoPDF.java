@@ -35,7 +35,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author David
+ * @author Anibal
  */
 public class EventoPDF implements IEventHandler {
 

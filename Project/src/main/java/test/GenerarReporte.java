@@ -30,7 +30,7 @@ public class GenerarReporte {
         } catch (IOException ex) {
             Logger.getLogger(GenerarReporte.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
-    
+
 }

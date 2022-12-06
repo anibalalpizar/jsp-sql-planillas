@@ -14,5 +14,5 @@ import java.io.IOException;
  */
 public interface Reporte {
 
-    public abstract void generarReporte(String DES, String titulo) throws SQLException, FileNotFoundException, IOException;    
+    public abstract void generarReporte(String DES, String titulo) throws SQLException, FileNotFoundException, IOException;
 }
