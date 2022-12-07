@@ -45,8 +45,10 @@ public class ReportePDF implements Reporte {
     @Override
     public void generarReporte(String DES, String titulo) throws SQLException, FileNotFoundException, IOException {
         // path del archivo pdf en el desktop
-        File file = new File("C://New folder//itext_Test.pdf");
-        PdfWriter writer = new PdfWriter(DES);
+        String desktopPath = System.getProperty("user.home") + File.separator + "Desktop" + File.separator + DES;
+
+        
+        PdfWriter writer = new PdfWriter(desktopPath);
         PdfDocument pdf = new PdfDocument(writer);
         Document document = new Document(pdf, PageSize.A4.rotate());
 
