@@ -21,16 +21,19 @@ public class GenerarReporte {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        gene2();
+    }
+
+    public static void gene2() {
         Reporte reporte = new ReportePDF();
         try {
-            reporte.generarReporte("reporte.pdf", "Resultado");
+            reporte.generarReporte("reporte.pdf", "Reporte");
+            System.out.println("good");
         } catch (SQLException ex) {
             Logger.getLogger(GenerarReporte.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(GenerarReporte.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 
 }

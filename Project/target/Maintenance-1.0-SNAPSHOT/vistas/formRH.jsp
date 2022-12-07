@@ -173,6 +173,20 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li class="treeview">
+                                <a href="#"
+                                   ><i class="glyphicon glyphicon-th-large"></i>
+                                    <span>Cambiar contraseña</span>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li>
+                                        <a href="../Project/faces/Cuenta/Cuenta.xhtml"><i class="fa fa-archive"></i>Cambiar mi contraseña</a>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                         <!-- /.sidebar-menu -->
                     </section>

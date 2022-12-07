@@ -65,7 +65,18 @@
     </managed-bean>
     <managed-bean>
         <managed-bean-name>beanReporte</managed-bean-name>
-        <managed-bean-class>Controller.beanReporte</managed-bean-class>
+        <managed-bean-class>test.beanReporte</managed-bean-class>
+    
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>GenerarReporte</managed-bean-name>
+        <managed-bean-class>test.GenerarReporte</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>beanCambio</managed-bean-name>
+        <managed-bean-class>Controller.beanCambio</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
 </faces-config>

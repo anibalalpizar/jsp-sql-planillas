@@ -17,6 +17,7 @@ import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.property.UnitValue;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -43,6 +44,8 @@ public class ReportePDF implements Reporte {
 
     @Override
     public void generarReporte(String DES, String titulo) throws SQLException, FileNotFoundException, IOException {
+        // path del archivo pdf en el desktop
+        File file = new File("C://New folder//itext_Test.pdf");
         PdfWriter writer = new PdfWriter(DES);
         PdfDocument pdf = new PdfDocument(writer);
         Document document = new Document(pdf, PageSize.A4.rotate());
