@@ -112,11 +112,16 @@ public class beanPlanilla {
         Planilla pla = new Planilla(idPlanilla, descripcion, idTurno, idTipoPlanilla, fechaInicio, FechaFinal, fechaPago);
         PlanillaDB planillaDB = new PlanillaDB();
 
-        if (planillaDB.consultPlanilla(idPlanilla) == true) {
-            setMensaje("Esta planilla ya fue creada");
+        if (idPlanilla == 0 || descripcion.equals("") || idTurno == 0 || idTipoPlanilla == 0 || fechaInicio.equals("") || FechaFinal.equals("") || fechaPago.equals("")) {
+            setMensaje("Campos Obligatorios");
         } else {
-            planillaDB.InsertarPlanilla(pla);
-            setMensaje("Planilla Creada Correctamente");
+
+            if (planillaDB.consultPlanilla(idPlanilla) == true) {
+                setMensaje("Esta planilla ya fue creada");
+            } else {
+                planillaDB.InsertarPlanilla(pla);
+                setMensaje("Planilla Creada Correctamente");
+            }
         }
 
     }

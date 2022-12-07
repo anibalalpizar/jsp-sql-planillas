@@ -323,12 +323,7 @@
                 </div>  
                 <h:outputText class="table table-striped table-hover" value="#{beanLibroPago.mensaje}"></h:outputText>
             </center>
-            <br/>   
-            <br/>
-            <br/> 
-            <br/>
-            <br/>   
-            <br/> 
+           
             <div class="container-xl">
                 <div class="table-responsive">
                     <div class="table-wrapper">
@@ -340,7 +335,7 @@
                                 <div class="col-sm-6">
                                     <h:commandButton class="btn btn-success" value="Guardar" actionListener="#{beanLibroPago.insertLibro()}"></h:commandButton>
                                     <h:commandButton class="btn btn-warning" value="Realizar Calculos" actionListener="#{beanLibroPago.calculos()}"></h:commandButton>
-                                    <h:commandButton class="btn btn-info" value="Limpiar" actionListener="#{beanWorkShift.limpiarCampos()}" ></h:commandButton>  
+                                    <h:commandButton class="btn btn-info" value="Limpiar" ></h:commandButton>  
                                 </div>
                             </div>
                         </div>
@@ -393,6 +388,12 @@
                     </div>
                 </div>
                 <h:commandButton value="Consultar Usuarios" actionListener="#{beanLibroPago.mostrarLista()}"></h:commandButton>
+                 <br/>   
+            <br/>
+            <br/> 
+            <br/>
+            <br/>   
+            <br/> 
             </div>
         </h:form>
     </h:body>

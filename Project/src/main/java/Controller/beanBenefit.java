@@ -63,11 +63,16 @@ public class beanBenefit {
         Benefit ben = new Benefit(idBeneficios, descripcion, porcentaje);
         BenefitDB benDB = new BenefitDB();
 
-        if (benDB.consultBenefit(idBeneficios) == true) {
-            setMensaje("Este Beneficio ya fue creado");
+        if (descripcion.equals("") || idBeneficios == 0) {
+            setMensaje("Campos Obligatorios");
         } else {
-            benDB.InsertBenefit(ben);
-            setMensaje("Beneficio Creado Correctamente");
+
+            if (benDB.consultBenefit(idBeneficios) == true) {
+                setMensaje("Este Beneficio ya fue creado");
+            } else {
+                benDB.InsertBenefit(ben);
+                setMensaje("Beneficio Creado Correctamente");
+            }
         }
 
     }
@@ -101,7 +106,12 @@ public class beanBenefit {
         Benefit ben = new Benefit(idBeneficios, descripcion, porcentaje);
         BenefitDB benDB = new BenefitDB();
 
-        benDB.ChangesBenefit(ben);
+        if (descripcion.equals("") || idBeneficios == 0 || porcentaje == 0) {
+            setMensaje("Llenar los Campos Para mofificar el Beneficio");
+        } else {
+            benDB.ChangesBenefit(ben);
+            setMensaje("Beneficio Modificado Correctamente");
+        }
 
     }
 

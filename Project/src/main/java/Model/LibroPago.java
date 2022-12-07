@@ -25,6 +25,18 @@ public class LibroPago {
         this.setCantHoras(cantHoras);
     }
 
+    public LibroPago(int idPlanilla, int categoriaPago, int idBeneficio, int idUsuario, float salarioBruto, float salarioNeto, int cantHoras) {
+
+        this.setIdPlanilla(idPlanilla);
+
+        this.setCategoriaPago(categoriaPago);
+        this.setIdBeneficio(idBeneficio);
+        this.setIdUsuario(idUsuario);
+        this.setSalarioBruto(salarioBruto);
+        this.setSalarioNeto(salarioNeto);
+        this.setCantHoras(cantHoras);
+    }
+
     public LibroPago(int idFactura, int idPlanilla, String usu, String ben, String pay, float salarioBruto, float salarioNeto) {
         this.setIdFactura(idFactura);
         this.setIdPlanilla(idPlanilla);
@@ -42,7 +54,6 @@ public class LibroPago {
     public void setCantHoras(int cantHoras) {
         this.cantHoras = cantHoras;
     }
-
 
     public String getUsu() {
         return usu;
@@ -68,25 +79,12 @@ public class LibroPago {
         this.pay = pay;
     }
 
-    
-
-    
-  
-
-
-
-
-
     public LibroPago() {
     }
 
     public int getIdFactura() {
         return idFactura;
     }
-
-   
-
-
 
     public void setIdFactura(int idFactura) {
         this.idFactura = idFactura;
@@ -141,4 +139,3 @@ public class LibroPago {
     }
 
 }
-

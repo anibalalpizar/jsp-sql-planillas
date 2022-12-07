@@ -25,9 +25,9 @@ public class LibroPagoDB {
             LibroPago libro = new LibroPago();
             libro = pLibro;
 
-            strSQL = "INSERT INTO LibroPago(IDFactura, IDPlanilla, IDCategoriaPago, IDBeneficio, IDUsuario, CantHoras) VALUES"
-                    + "(" + "'" + libro.getIdFactura() + "'" + ","
-                    + "'" + libro.getIdPlanilla() + "'" + ","
+            strSQL = "INSERT INTO LibroPago(IDPlanilla, IDCategoriaPago, IDBeneficio, IDUsuario, CantHoras) VALUES"
+                  //  + "(" + "'" + libro.getIdFactura() + "'" + ","
+                    +"(" + "'" + libro.getIdPlanilla() + "'" + ","
                     + "'" + libro.getCategoriaPago() + "'" + ","
                     + "'" + libro.getIdBeneficio() + "'" + ","
                     + "'" + libro.getIdUsuario() + "'" + ","

@@ -93,11 +93,16 @@ public class beanUser implements Serializable {
         User user = new User(idUsuario, salario, nombre, apellido1, apellido2, telefono);
         UserDB userDB = new UserDB();
 
-        if (userDB.consultarUser(idUsuario) == true) {
-            setMensaje("Este Usuario ya fue creado");
+        if (nombre.equals("") || apellido1.equals("") || apellido2.equals("")) {
+            setMensaje("Campos Obligatorios");
         } else {
-            userDB.InsertarUser(user);
-            setMensaje("Usuario Creado Correctamente");
+
+            if (userDB.consultarUser(idUsuario) == true) {
+                setMensaje("Este Usuario ya fue creado");
+            } else {
+                userDB.InsertarUser(user);
+                setMensaje("Usuario Creado Correctamente");
+            }
         }
 
     }
@@ -106,7 +111,12 @@ public class beanUser implements Serializable {
         User user = new User(idUsuario, salario, nombre, apellido1, apellido2, telefono);
         UserDB userDB = new UserDB();
 
-        userDB.ChangesUser(user);
+        if (nombre.equals("") || apellido1.equals("") || apellido2.equals("")) {
+            setMensaje("Llenar todos los campos para modificar un Usuario");
+        } else {
+            userDB.ChangesUser(user);
+            setMensaje("Usuario Modificado Correctamente");
+        }
 
     }
 
@@ -135,7 +145,6 @@ public class beanUser implements Serializable {
         }
 
     }
-
 
     public void mostrarLista() throws SNMPExceptions, SQLException {
         UserDB userDb = new UserDB();

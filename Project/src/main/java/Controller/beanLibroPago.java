@@ -139,21 +139,24 @@ public class beanLibroPago {
     
     public void insertLibro() throws SNMPExceptions, SQLException {
         
-        LibroPago libro = new LibroPago(idFactura, idPlanilla, idCategoriaPago, idBeneficio, idUsuario, salarioBruto, salarioNeto, cantHoras);
+        LibroPago libro = new LibroPago(idPlanilla,idCategoriaPago, idBeneficio, idUsuario, salarioBruto, salarioNeto, cantHoras);
         LibroPagoDB lirboDB = new LibroPagoDB();
+        
+        if (idPlanilla == 0 || idCategoriaPago == 0 || idBeneficio == 0 || idUsuario == 0 || salarioBruto == 0 || salarioNeto == 0) {
+            setMensaje("Campos Obligatorios");
+        }
         if (lirboDB.consultLibroPago(idUsuario) == true) {
             setMensaje("Esta Factura ya fue Creada");
         } else {
             lirboDB.InsertarFactura(libro);
             setMensaje("Factura Creada Correctamente");
         }
-
         
     }
     
     public void calculos() throws SNMPExceptions, SQLException {
         
-        LibroPago libro = new LibroPago(idFactura, idPlanilla, idBeneficio, idBeneficio, idUsuario, salarioBruto, salarioNeto, cantHoras);
+        LibroPago libro = new LibroPago(idFactura, idPlanilla, idCategoriaPago, idBeneficio, idUsuario, salarioBruto, salarioNeto, cantHoras);
         LibroPagoDB lirboDB = new LibroPagoDB();
         
         lirboDB.ChangesSalarioBruto(libro);
