@@ -5,6 +5,18 @@ public class cargo {
     private String nombreCargo;
     private boolean estado;
 
+    public cargo(int codigo, String nombreCargo) {
+        this.setCodigo(codigo);
+        this.setNombreCargo(nombreCargo);
+    }
+
+    public cargo() {
+    }
+
+
+
+
+
     public int getCodigo() {
         return codigo;
     }

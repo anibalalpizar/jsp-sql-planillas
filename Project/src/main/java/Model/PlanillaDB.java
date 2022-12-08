@@ -172,4 +172,26 @@ public void borradoLogicoWork(int idOrden) throws SNMPExceptions {
 
         }
     }
+
+public void ChangesPlanillas(Planilla pPlani) throws SNMPExceptions, SQLException {
+
+        String strSQL = "";
+
+        try {
+
+            Planilla plan = new Planilla();
+            plan = pPlani;
+            strSQL = String.format("UPDATE Planilla set Descripcion = '%s', IDTurno = %d, IDTipoPlanilla = %d, FechaInico = '%s', FechaFinal = '%s', FechaPago = '%s'  where IDPlanilla = %d",
+                 pPlani.descripcion, pPlani.idTurno, pPlani.idTipoPlanilla,pPlani.fechaInicio, pPlani.fechaFinal, pPlani.fechaPago, pPlani.idPlanilla);
+
+            accesoDatos.ejecutaSQL(strSQL);
+
+        } catch (SQLException e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION, e.getMessage(), e.getErrorCode());
+        } catch (Exception e) {
+            throw new SNMPExceptions(SNMPExceptions.SQL_EXCEPTION, e.getMessage());
+        } finally {
+        }
+
+    }
 }

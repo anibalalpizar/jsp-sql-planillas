@@ -5,9 +5,14 @@
 package Controller;
 
 import DAO.SNMPExceptions;
+import Model.CargoDB;
 import Model.Register;
 import Model.RegisterDB;
+import Model.cargo;
 import java.sql.SQLException;
+import java.util.Iterator;
+import java.util.LinkedList;
+import javax.faces.model.SelectItem;
 
 /**
  *
@@ -70,6 +75,30 @@ public class beanRegister {
         RegisterDB benDB = new RegisterDB();
 
         benDB.insertarUsuario(ben);
+
+    }
+
+    public LinkedList<SelectItem> getListaPosition() throws SNMPExceptions, SQLException {
+        String PositionName = "";
+        int idPosition = 0;
+
+        LinkedList<cargo> lista = new LinkedList<cargo>();
+        CargoDB cDB = new CargoDB();
+        lista = cDB.moTodo();
+
+        LinkedList resultList = new LinkedList();
+        resultList.add(new SelectItem(0, "Seleccione el Cargo"));
+
+        for (Iterator iter = lista.iterator();
+                iter.hasNext();) {
+
+            cargo cate = (cargo) iter.next();
+            idPosition = cate.getCodigo();
+            PositionName = cate.getNombreCargo();
+            resultList.add(new SelectItem(idPosition, PositionName));
+
+        }
+        return resultList;
 
     }
 

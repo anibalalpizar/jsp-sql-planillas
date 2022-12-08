@@ -49,13 +49,17 @@
                             <h:inputText class="p-2 rounded-xl border w-full" value="#{beanRegister.status}"></h:inputText>
 
 
-                            <h6>ID Rol (1 to 3)</h6>
-                            <!--<h:outputText class="p-2 rounded-xl border w-full" value="idposition"></h:outputText>-->
-                            <h:inputText class="p-2 rounded-xl border w-full" value="#{beanRegister.idPosition}"></h:inputText>
+                      <!--      <h6>ID Rol (1 to 3)</h6>
+                           <h:outputText class="p-2 rounded-xl border w-full" value="idposition"></h:outputText>
+                            <h:inputText class="p-2 rounded-xl border w-full" value=""></h:inputText> -->
+                       <h:outputText value="Rol"></h:outputText>
+                       <h:selectOneMenu class="p-2 rounded-xl border w-full" value="#{beanRegister.idPosition}"  >
+                           <f:selectItems value="#{beanRegister.listaPosition}"></f:selectItems> 
+                    </h:selectOneMenu>
 
 
-                            <h:commandButton value="Guardar" actionListener="#{beanRegister.insertBenefit()}"></h:commandButton>
-                            <h:commandButton value="Limpiar" actionListener="#{beanRegister.limpiarCampos()}" ></h:commandButton>   
+                            <h:commandButton class="bg-[#002D74] rounded-xl text-white py-2 hover:scale-105 duration-300"  value="Guardar" actionListener="#{beanRegister.insertBenefit()}"></h:commandButton>
+                           
 
                         </div>
 

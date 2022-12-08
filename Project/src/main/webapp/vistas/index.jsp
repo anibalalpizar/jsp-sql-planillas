@@ -224,7 +224,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> <%
                                 </a>
                                 <ul class="treeview-menu">
                                     <li>
-                                        <a href="../Project/faces/Reporte/Reporte.xhtml"><i class="fa fa-archive"></i>Reporte (crear xhtml falta)</a>
+                                        <a href="../Project/faces/Reporte/Reporte.xhtml"><i class="fa fa-archive"></i>Reporte</a>
                                     </li>
                                 </ul>
                             </li>

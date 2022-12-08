@@ -185,6 +185,51 @@
                             <li class="treeview">
                                 <a href="#"
                                    ><i class="glyphicon glyphicon-th-large"></i>
+                                    <span>Planillas</span>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li>
+                                        <a href="../Project/faces/Planilla/Planilla.xhtml"><i class="fa fa-archive"></i>Planilla</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="treeview">
+                                <a href="#"
+                                   ><i class="glyphicon glyphicon-th-large"></i>
+                                    <span>Libro pago</span>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li>
+                                        <a href="../Project/faces/LibroPago/LibroPago.xhtml"><i class="fa fa-archive"></i>Libro Pago</a>
+                                    </li>
+                                </ul>
+
+                            </li>
+
+                            <li class="treeview">
+                                <a href="#"
+                                   ><i class="glyphicon glyphicon-th-large"></i>
+                                    <span>Reporte</span>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li>
+                                        <a href="../Project/faces/Reporte/Reporte.xhtml"><i class="fa fa-archive"></i>Reporte</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="treeview">
+                                <a href="#"
+                                   ><i class="glyphicon glyphicon-th-large"></i>
                                     <span>Cambiar contraseña</span>
                                     <span class="pull-right-container">
                                         <i class="fa fa-angle-left pull-right"></i>
